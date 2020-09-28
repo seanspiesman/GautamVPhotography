@@ -1,9 +1,10 @@
 import React from "react";
+import Sandbox from "../sandbox/Sandbox";
 
 const Japan = () => {
   return (
     <div>
-      <h1> Japan</h1>
+      <Sandbox />
     </div>
   );
 };
