@@ -1,13 +1,13 @@
 import React from "react";
 import { useField } from "formik";
+import LoadingComponent from "../../components/LoadingComponent";
 
 export default function MyTextInput({ label, ...props }) {
   const [field, meta] = useField(props);
   if (field.value === undefined) {
-    field.value = "";
+    return <LoadingComponent />;
   }
   //   console.log(Date.now());
-
   return (
     <div>
       <label>{label && label}</label>

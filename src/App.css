@@ -1,12 +1,31 @@
-.homepage-background {
+#cf {
+  position: relative;
+  height: auto;
+  width: 450px;
+  /* margin: 0 auto; */
+}
+
+#cf img.top {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: auto;
+  width: 100vw;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+#cf img.bottom {
   /* position: absolute; */
-  /* top: 0; */
-  background-image: url("/assets/C130.jpg");
-  background-size: 100% auto;
-  height: 50vw;
-  width: 100%;
-  background-repeat: no-repeat;
-  z-index: -1000;
+  left: 0;
+  height: auto;
+  width: 100vw;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 
 #homepage-title {
@@ -14,6 +33,7 @@
   font-size: 200%;
   font-weight: bold;
   text-shadow: 0px 0px 1px black;
+  font-family: "Shadows Into Light", cursive;
 }
 
 /* font-family: "Noto Serif", serif; */
@@ -29,7 +49,6 @@
 }
 
 .navbar {
-  font-family: "Shadows Into Light", cursive;
   z-index: 1000;
 }
 
@@ -37,6 +56,7 @@
   color: black;
   font-size: 170%;
   font-weight: bold;
+  font-family: "Shadows Into Light", cursive;
 }
 
 nav.a:hover {
@@ -49,11 +69,11 @@ nav.a:hover {
 
 .home-page-image:hover {
   color: white;
-  text-shadow: 0px 0px 2px white;
+  text-shadow: 0px 0px 5px black;
 }
 
 .about-background {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   background: linear-gradient(100deg, #fff9d9, #fbffc0);
   height: 100vh;
@@ -70,11 +90,6 @@ nav.a:hover {
   border-radius: 5px 20px;
   padding: 12px;
   font-family: "Noto Serif JP", serif;
-}
-
-.inside-pic {
-  width: 100%;
-  /* border-radius: 10px; */
 }
 
 .centered-text {

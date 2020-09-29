@@ -1,9 +1,14 @@
-import { CREATE_BLOG, DELETE_BLOG, UPDATE_BLOG } from "./blogConstants";
+import {
+  CREATE_BLOG,
+  DELETE_BLOG,
+  FETCH_BLOG,
+  UPDATE_BLOG,
+} from "./blogConstants";
 
 const { sampleData } = require("./sampleData");
 
 const initialState = {
-  posts: sampleData,
+  posts: [],
 };
 
 export default function blogReducer(state = initialState, { type, payload }) {
@@ -23,6 +28,12 @@ export default function blogReducer(state = initialState, { type, payload }) {
         ...state,
         posts: [...state.posts.filter((pst) => pst.id !== payload)],
       };
+    case FETCH_BLOG:
+      return {
+        ...state,
+        posts: payload,
+      };
+
     default:
       return state;
   }

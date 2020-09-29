@@ -1,14 +1,23 @@
-import cuid from "cuid";
 import { Formik, Form } from "formik";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { createBlog, updateBlog } from "./blogActions";
+import { listenToBlog } from "./blogActions";
 import * as Yup from "yup";
 import MyTextInput from "../../common/form/MyTextInput";
 import MyTextArea from "../../common/form/MyTextArea";
+import useFirestoreDoc from "../../common/hooks/useFirestoreDoc";
+import {
+  addPostToFirestore,
+  listenToPostFromFirestore,
+  updatePostInFirestore,
+} from "../../common/firestore/firestoreService";
+import LoadingComponent from "../LoadingComponent";
 
-const PostForm = ({ match }) => {
+const PostForm = ({ match, history }) => {
+  const { loading } = useSelector((state) => state.async);
+
+  const dispatch = useDispatch();
+  // console.log(listenToPostFromFirestore(match.params.id));
   const post = useSelector((state) =>
     state.blog.posts.find((e) => e.id === match.params.id)
   );
@@ -23,18 +32,15 @@ const PostForm = ({ match }) => {
     description: Yup.string().required("You must provide post content"),
   });
 
-  let history = useHistory();
+  useFirestoreDoc({
+    shouldExecute:
+      !!match.params.id && history.location.pathname !== "/CreatePost",
+    query: () => listenToPostFromFirestore(match.params.id),
+    data: (post) => dispatch(listenToBlog([post])),
+    deps: [match.params.id, dispatch],
+  });
 
-  const dispatch = useDispatch();
-
-  var today = new Date();
-
-  var date =
-    today.getFullYear() +
-    "-" +
-    ("0" + (today.getMonth() + 1)).slice(-2) +
-    "-" +
-    ("0" + today.getDate()).slice(-2);
+  if (loading) return <LoadingComponent />;
 
   return (
     <div className="container">
@@ -42,17 +48,16 @@ const PostForm = ({ match }) => {
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={(value) => {
-          post
-            ? dispatch(updateBlog({ ...post, ...value }))
-            : dispatch(
-                createBlog({
-                  ...value,
-                  date: date,
-                  id: cuid(),
-                })
-              );
-          history.push("/Blog");
+        onSubmit={async (values, { setSubmitting }) => {
+          try {
+            post
+              ? await updatePostInFirestore(values)
+              : await addPostToFirestore(values);
+            history.push("/Blog");
+          } catch (error) {
+            console.log(error);
+            setSubmitting(false);
+          }
         }}
       >
         <Form>

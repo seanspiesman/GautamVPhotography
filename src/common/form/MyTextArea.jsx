@@ -1,10 +1,11 @@
 import React from "react";
 import { useField } from "formik";
+import LoadingComponent from "../../components/LoadingComponent";
 
 export default function MyTextArea({ label, ...props }) {
   const [field, meta] = useField(props);
   if (field.value === undefined) {
-    field.value = "";
+    return <LoadingComponent />;
   }
 
   return (

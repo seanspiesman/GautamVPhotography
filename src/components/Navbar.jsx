@@ -7,12 +7,35 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-sm navbar-light transparent">
-        <div className="navbar-collapse w-100 dual-collapse2 order-1 order-md-0">
+      <nav className="navbar navbar-expand-md navbar-light transparent">
+        <Link to={"/"} id="homepage-title" className="navbar-brand">
+          <h1 style={{ color: "black" }}>
+            Gautam <br /> Venkataraman
+            <br />
+            <p
+              className="text-muted"
+              style={{ fontSize: "40%", fontFamily: '"Noto Serif", serif' }}
+            >
+              PHOTOGRAPHY
+            </p>
+          </h1>
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto text-center">
             <li className="nav-item">
               <Link className="nav-link link-text" as={NavLink} to={"/About"}>
-                About
+                ABOUT
               </Link>
             </li>
             <li className="nav-item dropdown link-text">
@@ -24,9 +47,12 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Albums
+                ALBUMS
               </div>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div
+                className="dropdown-menu text-center"
+                aria-labelledby="navbarDropdown"
+              >
                 <Link
                   className="dropdown-item link-text"
                   to={"/Albums/Adventure"}
@@ -40,36 +66,16 @@ const Navbar = () => {
                   Japan
                 </Link>
               </div>
-              {/* <Link className="nav-link link-text" as={NavLink} to={"/Album"}>
-                Album
-              </Link> */}
             </li>
-          </ul>
-        </div>
-        <div className="mx-auto my-2 order-0 order-md-1 position-relative">
-          <Link to={"/"} id="homepage-title">
-            <h1 style={{ color: "black" }}>
-              Gautam <br /> Venkataraman
-              <br />
-              <p
-                className="text-muted"
-                style={{ fontSize: "40%", fontFamily: '"Noto Serif", serif' }}
-              >
-                PHOTOGRAPHY
-              </p>
-            </h1>
-          </Link>
-        </div>
-        <div className="navbar-collapse w-100 dual-collapse2 order-2 order-md-2">
-          <ul className="navbar-nav mr-auto text-center">
+
             <li className="nav-item">
               <Link className="nav-link link-text" as={NavLink} to={"/Blog"}>
-                Blog
+                BLOG
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link link-text" as={NavLink} to={"/Contact"}>
-                Contact
+                CONTACT
               </Link>
             </li>
           </ul>

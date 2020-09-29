@@ -1,4 +1,35 @@
-import { CREATE_BLOG, DELETE_BLOG, UPDATE_BLOG } from "./blogConstants";
+import {
+  asyncActionError,
+  asyncActionFinish,
+  asyncActionStart,
+} from "../../common/async/asyncReducer";
+import { fetchSampleData } from "../../common/mockAPI/mockApi";
+import {
+  CREATE_BLOG,
+  DELETE_BLOG,
+  FETCH_BLOG,
+  UPDATE_BLOG,
+} from "./blogConstants";
+
+export function loadBlog() {
+  return async function (dispatch) {
+    dispatch(asyncActionStart());
+    try {
+      const posts = await fetchSampleData();
+      dispatch({ type: FETCH_BLOG, payload: posts });
+      dispatch(asyncActionFinish);
+    } catch (error) {
+      dispatch(asyncActionError(error));
+    }
+  };
+}
+
+export function listenToBlog(posts) {
+  return {
+    type: FETCH_BLOG,
+    payload: posts,
+  };
+}
 
 export function createBlog(post) {
   return {
