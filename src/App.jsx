@@ -13,7 +13,7 @@ import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div>
+    <>
       <Navbar />
       <Route exact path="/" component={Homepage} />
       <Route
@@ -37,7 +37,7 @@ function App() {
           </Fragment>
         )}
       />
-    </div>
+    </>
   );
 }
 

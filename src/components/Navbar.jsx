@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const { authneticated } = useSelector((state) => state.auth);
+
   return (
     <>
       <nav className="navbar navbar-expand-sm navbar-light transparent">
