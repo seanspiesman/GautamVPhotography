@@ -20,7 +20,7 @@ export function dataFromSnapshot(snapshot) {
 }
 
 export function listenToPostsFromFirestore() {
-  return db.collection("Blog").orderBy("time");
+  return db.collection("Blog").orderBy("date");
 }
 
 export function listenToPostFromFirestore(postId) {
@@ -32,7 +32,7 @@ var now = firestore.Timestamp.fromDate(new Date());
 export function addPostToFirestore(post) {
   return db.collection("Blog").add({
     ...post,
-    time: now,
+    date: now,
     id: cuid(),
   });
 }
@@ -46,12 +46,9 @@ export function deletePostInFirestore(postId) {
 }
 
 export function setUserProfileData(user) {
-  return db
-    .collection("users")
-    .doc(user.uid)
-    .set({
-      displayName: user.displayName,
-      email: user.email,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-    });
+  return db.collection("users").doc(user.uid).set({
+    displayName: user.displayName,
+    email: user.email,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+  });
 }

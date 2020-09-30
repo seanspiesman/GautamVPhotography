@@ -6,7 +6,7 @@ import { deletePostInFirestore } from "../../common/firestore/firestoreService";
 
 const BlogItem = ({ post, match, edit }) => {
   const { title, description, id } = post;
-  let postDate = format(post.time, "PPPPpppp");
+  let postDate = format(post.date, "PPPPpppp");
   return (
     <>
       <div style={{ color: "white" }}>

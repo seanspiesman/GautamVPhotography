@@ -10,7 +10,7 @@ import BlogItem from "./BlogItem";
 
 const Blog = () => {
   const { auth, blog } = useSelector((state) => state);
-
+  let newblog = blog.posts.slice().reverse();
   let edit, admin;
   if (auth.currentUser) admin = auth.currentUser.email;
   if (admin === "sean.spies@gmail.com") edit = true;
@@ -33,12 +33,12 @@ const Blog = () => {
       <div className=" text-center">
         {edit && (
           <Link className="btn btn-info" to={"/CreatePost"}>
-            Create New event
+            Create New Post
           </Link>
         )}
       </div>
-      {blog.posts ? (
-        blog.posts.map((post, index) => (
+      {newblog ? (
+        newblog.map((post, index) => (
           <BlogItem key={index} index={index} post={post} edit={edit} />
         ))
       ) : (
