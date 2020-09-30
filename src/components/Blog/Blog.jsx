@@ -3,12 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { listenToPostsFromFirestore } from "../../common/firestore/firestoreService";
 import useFirestoreCollection from "../../common/hooks/useFirestoreCollection";
+import LoginForm from "../../common/modal/LoginForm";
 import LoadingComponent from "../LoadingComponent";
 import { listenToBlog } from "./blogActions";
 import BlogItem from "./BlogItem";
 
 const Blog = () => {
   const { auth, blog } = useSelector((state) => state);
+
+  let edit, admin;
+  if (auth.currentUser) admin = auth.currentUser.email;
+  if (admin === "sean.spies@gmail.com") edit = true;
   const dispatch = useDispatch();
 
   useFirestoreCollection({
@@ -18,23 +23,23 @@ const Blog = () => {
   });
 
   return (
-    <div className="container" style={{ color: "white" }}>
-      <h1 className="text-center">Blog</h1>
-      <div className="text-right">
-        {auth.authenticated ? (
-          <span className="oi oi-account-logout "></span>
-        ) : (
-          <span className="oi oi-account-login "></span>
-        )}
+    <div className="container">
+      <h1 className="text-center" style={{ color: "white" }}>
+        Blog
+      </h1>
+      <div className="float-right">
+        <LoginForm />
       </div>
       <div className=" text-center">
-        <Link className="btn btn-info" to={"/CreatePost"}>
-          Create New event
-        </Link>
+        {edit && (
+          <Link className="btn btn-info" to={"/CreatePost"}>
+            Create New event
+          </Link>
+        )}
       </div>
       {blog.posts ? (
         blog.posts.map((post, index) => (
-          <BlogItem key={index} index={index} post={post} />
+          <BlogItem key={index} index={index} post={post} edit={edit} />
         ))
       ) : (
         <LoadingComponent />

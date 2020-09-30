@@ -13,6 +13,7 @@ export default function authReducer(state = initialState, { type, payload }) {
         authenticated: true,
         currentUser: {
           email: payload.email,
+          uid: payload.uid,
         },
       };
     case SIGN_OUT_USER:

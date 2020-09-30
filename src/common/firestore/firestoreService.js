@@ -44,3 +44,14 @@ export function updatePostInFirestore(post) {
 export function deletePostInFirestore(postId) {
   return db.collection("Blog").doc(postId).delete();
 }
+
+export function setUserProfileData(user) {
+  return db
+    .collection("users")
+    .doc(user.uid)
+    .set({
+      displayName: user.displayName,
+      email: user.email,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+}

@@ -9,7 +9,6 @@ import Blog from "./components/Blog/Blog";
 import PostForm from "./components/Blog/PostForm";
 import Contact from "./components/Contact";
 import Homepage from "./components/Homepage";
-import LoginModal from "./components/LoginModal";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -32,7 +31,6 @@ function App() {
                 path={["/CreatePost", "/ManagePost/:id"]}
                 component={PostForm}
               />
-              <Route component={LoginModal} />
 
               {/* <Route component={NotFound} /> */}
             </Switch>
