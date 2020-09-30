@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import ScrollToTop from "./ScrollToTop";
 import { configureStore } from "./common/store/configureStore";
-import { loadBlog } from "./components/Blog/blogActions";
+// import { loadBlog } from "./components/Blog/blogActions";
 
 const store = configureStore();
 

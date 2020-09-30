@@ -1,16 +1,16 @@
 import React from "react";
-import Gallery from "react-photo-gallery";
+import ResponsiveGallery from "react-responsive-gallery";
 
-const Album = ({ title, photoset }) => {
+const Album = ({ title, images }) => {
   return (
     <div className="container">
-      <h4
+      <h3
         className="text-center"
-        style={{ fontFamily: '"Shadows Into Light", cursive' }}
+        style={{ fontFamily: '"Shadows Into Light", cursive', color: "white" }}
       >
         {title}
-      </h4>
-      <Gallery photos={photoset} />
+      </h3>
+      <ResponsiveGallery images={images} useLightBox={true} />{" "}
     </div>
   );
 };

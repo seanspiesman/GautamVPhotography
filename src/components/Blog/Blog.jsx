@@ -18,7 +18,7 @@ const Blog = () => {
   });
 
   return (
-    <div className="container">
+    <div className="container" style={{ color: "white" }}>
       <h1 className="text-center">Blog</h1>
       <div className="text-right">
         {auth.authenticated ? (

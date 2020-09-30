@@ -1,6 +1,6 @@
 import { formatRelative, subDays } from "date-fns";
 import React from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { deletePostInFirestore } from "../../common/firestore/firestoreService";
 
@@ -12,11 +12,11 @@ const BlogItem = ({ post, match }) => {
   // );
   // console.log(blog);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   let postDate = formatRelative(subDays(post.time, 3), post.time);
   return (
     <>
-      <div>
+      <div style={{ color: "white" }}>
         <h2>
           {title}{" "}
           <div style={{ fontSize: "12px" }} className="text-muted">

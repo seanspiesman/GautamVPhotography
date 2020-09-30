@@ -1,46 +1,19 @@
-#cf {
-  position: relative;
-  height: auto;
-  width: 450px;
-  /* margin: 0 auto; */
-}
-
-#cf img.top {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: auto;
-  width: 100vw;
-  -webkit-transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -o-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out;
-}
-
-#cf img.bottom {
-  /* position: absolute; */
-  left: 0;
-  height: auto;
-  width: 100vw;
-  -webkit-transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -o-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out;
-}
-
 #homepage-title {
-  /* padding-top: 200px; */
   font-size: 200%;
   font-weight: bold;
   text-shadow: 0px 0px 1px black;
   font-family: "Shadows Into Light", cursive;
 }
 
-/* font-family: "Noto Serif", serif; */
+#root {
+  background-color: rgb(41, 41, 41);
+  min-height: 100vh;
+}
 
 #homepage-button-div {
   margin-top: 20%;
 }
+
 #homepage-link {
   border-style: solid;
   padding: 5px;
@@ -48,48 +21,30 @@
   color: black;
 }
 
-.navbar {
-  z-index: 1000;
-}
-
 .link-text {
-  color: black;
-  font-size: 170%;
+  background-color: #212121 !important;
+  font-size: 170% !important;
   font-weight: bold;
   font-family: "Shadows Into Light", cursive;
 }
 
-nav.a:hover {
-  color: black;
+.dd-link-text {
+  background-color: #212121 !important;
+  color: white !important;
+  font-size: 170% !important;
 }
 
 #homepage-title:hover {
-  color: black;
+  color: rgb(177, 177, 177);
 }
+
+/* .navbar .dropdownmenu {
+  margin-top: 0;
+} */
 
 .home-page-image:hover {
   color: white;
   text-shadow: 0px 0px 5px black;
-}
-
-.about-background {
-  /* position: absolute; */
-  top: 0;
-  background: linear-gradient(100deg, #fff9d9, #fbffc0);
-  height: 100vh;
-  width: 100vw;
-}
-
-.spacer-div {
-  border-top: 3px solid rgb(121, 121, 121);
-}
-
-.home-about-text {
-  color: black;
-  border: 3px solid rgb(255, 230, 163);
-  border-radius: 5px 20px;
-  padding: 12px;
-  font-family: "Noto Serif JP", serif;
 }
 
 .centered-text {
@@ -101,4 +56,9 @@ nav.a:hover {
   left: 50%;
   text-shadow: 0px 0px 2px black;
   transform: translate(-50%, -50%);
+}
+
+.image-gallery {
+  height: auto;
+  width: 100%;
 }

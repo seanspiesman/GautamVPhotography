@@ -71,7 +71,7 @@ const Homepage = () => {
       </div>
       <div className="container-fluid">
         <br />
-        <div className="row home-page-image">
+        <div className="row home-page-image ">
           <div className="col-md-4 text-center">
             <div className="container">
               <div className="row view overlay zoom">

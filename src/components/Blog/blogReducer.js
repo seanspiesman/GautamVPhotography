@@ -5,8 +5,6 @@ import {
   UPDATE_BLOG,
 } from "./blogConstants";
 
-const { sampleData } = require("./sampleData");
-
 const initialState = {
   posts: [],
 };
