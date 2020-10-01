@@ -9,15 +9,15 @@ const BlogItem = ({ post, match, edit }) => {
   let postDate = format(post.date, "PPPPpppp");
   return (
     <>
-      <div style={{ color: "white" }}>
-        <h2>
-          {title}{" "}
+      <div className="blog-post">
+        <h1 className="blog-post-title">
+          {title}
           <div style={{ fontSize: "12px" }} className="text-muted">
             {postDate}
           </div>
-        </h2>
+        </h1>
 
-        <p>{description}</p>
+        <p className="blog-post-text">{description}</p>
         <br />
         {edit && (
           <div className="text-right">

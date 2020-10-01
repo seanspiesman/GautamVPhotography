@@ -13,7 +13,9 @@ const Blog = () => {
   let newblog = blog.posts.slice().reverse();
   let edit, admin;
   if (auth.currentUser) admin = auth.currentUser.email;
-  if (admin === "sean.spies@gmail.com") edit = true;
+  if (admin === "sean.spies@gmail.com" || admin === "slohaputra@gmail.com")
+    edit = true;
+
   const dispatch = useDispatch();
 
   useFirestoreCollection({
@@ -24,18 +26,23 @@ const Blog = () => {
 
   return (
     <div className="container">
-      <h1 className="text-center" style={{ color: "white" }}>
-        Blog
+      <h1
+        className="text-center"
+        style={{ color: "white", fontFamily: '"Shadows Into Light", cursive' }}
+      >
+        A Day in the Life
       </h1>
-      <div className="float-right">
-        <LoginForm />
-      </div>
-      <div className=" text-center">
+
+      <br />
+      <div className="row">
         {edit && (
           <Link className="btn btn-info" to={"/CreatePost"}>
             Create New Post
           </Link>
         )}
+        <div className="ml-auto">
+          <LoginForm />
+        </div>
       </div>
       {newblog ? (
         newblog.map((post, index) => (

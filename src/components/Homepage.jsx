@@ -94,7 +94,7 @@ const Homepage = () => {
               <div className="row view overlay zoom">
                 <img
                   className="img-fluid"
-                  src="assets/Adventure1.jpg"
+                  src="assets/Adventure1.JPG"
                   style={{ width: "100%" }}
                   alt="C130 Cockpit"
                 />

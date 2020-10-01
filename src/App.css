@@ -38,10 +38,6 @@
   color: rgb(177, 177, 177);
 }
 
-/* .navbar .dropdownmenu {
-  margin-top: 0;
-} */
-
 .home-page-image:hover {
   color: white;
   text-shadow: 0px 0px 5px black;
@@ -61,4 +57,33 @@
 .image-gallery {
   height: auto;
   width: 100%;
+}
+
+.about-page-title {
+  color: white;
+  font-family: "Shadows Into Light", cursive;
+}
+
+.about-page-text {
+  font-size: 30px;
+  color: white;
+  font-family: "Shadows Into Light", cursive;
+}
+
+.blog-post {
+  color: white;
+  border: 6px solid purple;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.blog-post-title {
+  color: white;
+  font-family: sans-serif;
+}
+
+.blog-post-text {
+  font-size: 25px;
+  color: white;
+  font-family: sans-serif;
 }
