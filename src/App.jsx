@@ -10,6 +10,7 @@ import PostForm from "./components/Blog/PostForm";
 import Contact from "./components/Contact";
 import Homepage from "./components/Homepage";
 import Navbar from "./components/Navbar";
+import LoginPage from './components/LoginPage'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route exact path="/Albums/Japan" component={Japan} />
               <Route path="/Contact" component={Contact} />
               <Route path="/Blog" component={Blog} />
+              <Route path='/Login' component={LoginPage} />
               <Route
                 path={["/CreatePost", "/ManagePost/:id"]}
                 component={PostForm}

@@ -10,7 +10,7 @@ const Album = ({ title, images }) => {
       >
         {title}
       </h3>
-      <ResponsiveGallery images={images} useLightBox={true} />{" "}
+      <ResponsiveGallery images={images} useLightBox={true} />
     </div>
   );
 };

@@ -26,15 +26,13 @@ const About = () => {
               Equis
               <br />
               <br />
-              My favorite color is white.
-              <br />
-              <br />
               All jokes aside I am a gamer at heart. It all started with my
               great friend Sean, and the Swadian Knights. We joined forces and
               pummled anybody in our path. Then his computer died and the epic
               saga ended.
             </p>
           </div>
+      <div> cool</div>
         </div>
       </div>
     </>

@@ -2,7 +2,7 @@
   font-size: 200%;
   font-weight: bold;
   text-shadow: 0px 0px 1px black;
-  font-family: "Shadows Into Light", cursive;
+  font-family: "EB Garamond", serif;
 }
 
 #root {
@@ -23,15 +23,16 @@
 
 .link-text {
   background-color: #212121 !important;
-  font-size: 170% !important;
+  font-size: 100% !important;
   font-weight: bold;
-  font-family: "Shadows Into Light", cursive;
+  font-family: "EB Garamond", serif;
+  /* "Shadows Into Light", cursive; */
 }
 
 .dd-link-text {
   background-color: #212121 !important;
   color: white !important;
-  font-size: 170% !important;
+  font-size: 100% !important;
 }
 
 #homepage-title:hover {

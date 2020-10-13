@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { listenToPostsFromFirestore } from "../../common/firestore/firestoreService";
 import useFirestoreCollection from "../../common/hooks/useFirestoreCollection";
-import LoginForm from "../../common/modal/LoginForm";
 import LoadingComponent from "../LoadingComponent";
 import { listenToBlog } from "./blogActions";
 import BlogItem from "./BlogItem";
@@ -40,9 +39,6 @@ const Blog = () => {
             Create New Post
           </Link>
         )}
-        <div className="ml-auto">
-          <LoginForm />
-        </div>
       </div>
       {newblog ? (
         newblog.map((post, index) => (

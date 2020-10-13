@@ -31,11 +31,11 @@ const Navbar = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto text-center">
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link className="nav-link link-text" as={NavLink} to={"/About"}>
               ABOUT
             </Link>
-          </li>
+          </li> */}
           <li className="nav-item dropdown link-text">
             <div
               className="nav-link dropdown-toggle"
@@ -46,7 +46,7 @@ const Navbar = () => {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              ALBUMS
+              LANDSCAPES
             </div>
             <div
               className="dropdown-menu"
@@ -58,25 +58,92 @@ const Navbar = () => {
                 className="dropdown-item dd-link-text"
                 to={"/Albums/Adventure"}
               >
-                Adventure
+                ALASKA
               </Link>
               <Link className="dropdown-item dd-link-text" to={"/Albums/India"}>
-                India
+                JAPAN
               </Link>
               <Link className="dropdown-item dd-link-text" to={"/Albums/Japan"}>
-                Japan
+                PACIFIC NW
+              </Link>
+               <Link className="dropdown-item dd-link-text" to={"/Albums/Japan"}>
+                ROCKY MOUNTAINS
+              </Link>
+              <Link className="dropdown-item dd-link-text" to={"/Albums/Japan"}>
+                UTAH
+              </Link>
+              <Link className="dropdown-item dd-link-text" to={"/Albums/Japan"}>
+                WEST US
+              </Link>
+            </div>
+          </li>
+          <li className="nav-item dropdown link-text">
+            <div
+              className="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              CITYSCAPES
+            </div>
+            <div
+              className="dropdown-menu"
+              style={{ padding: "0px", left: "40%" }}
+              aria-labelledby="navbarDropdown"
+              role="button"
+            >
+              <Link
+                className="dropdown-item dd-link-text"
+                to={"/Albums/Adventure"}
+              >
+                PACIFIC
+              </Link>
+              <Link className="dropdown-item dd-link-text" to={"/Albums/India"}>
+                AMERICA
+              </Link>
+            </div>
+          </li>
+          <li className="nav-item dropdown link-text">
+            <div
+              className="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              FLYING
+            </div>
+            <div
+              className="dropdown-menu"
+              style={{ padding: "0px", left: "40%" }}
+              aria-labelledby="navbarDropdown"
+              role="button"
+            >
+              <Link
+                className="dropdown-item dd-link-text"
+                to={"/Albums/Adventure"}
+              >
+                C-130J
+              </Link>
+              <Link className="dropdown-item dd-link-text" to={"/Albums/India"}>
+                AERIAL
               </Link>
             </div>
           </li>
 
           <li className="nav-item">
             <Link className="nav-link link-text" as={NavLink} to={"/Blog"}>
-              BLOG
+              RECENT PROJECTS
             </Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link link-text" as={NavLink} to={"/Contact"}>
-              CONTACT
+              ABOUT/CONTACT
             </Link>
           </li>
         </ul>
