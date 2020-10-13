@@ -12,6 +12,7 @@ import {
   updatePostInFirestore,
 } from "../../common/firestore/firestoreService";
 import LoadingComponent from "../LoadingComponent";
+import ImageDropzone from "./ImageDropzone";
 
 const PostForm = ({ match, history }) => {
   const { loading } = useSelector((state) => state.async);
@@ -44,7 +45,7 @@ const PostForm = ({ match, history }) => {
 
   return (
     <div className="container">
-      <h1>{post ? "Edit the post" : "Create new post"}</h1>
+      <h1 style={{color:'white'}}>{post ? "Edit the post" : "Create new post"}</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -65,6 +66,8 @@ const PostForm = ({ match, history }) => {
             <MyTextInput name="title" placeholder="Post title" />
             <MyTextArea name="description" placeholder="Blog text" rows={10} />
           </div>
+          
+          <ImageDropzone />
           <button type="submit" className="btn btn-primary">
             Submit
           </button>

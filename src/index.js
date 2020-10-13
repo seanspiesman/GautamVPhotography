@@ -14,14 +14,14 @@ const store = configureStore();
 // store.dispatch(loadBlog());
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <ScrollToTop />
         <App />
       </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
+  // </React.StrictMode>,
   document.getElementById("root")
 );
 
