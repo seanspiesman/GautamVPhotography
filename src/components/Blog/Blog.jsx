@@ -25,6 +25,7 @@ const Blog = () => {
 
   return (
     <div className="container">
+      <br />
       <h1
         className="text-center"
         style={{ color: "white", fontFamily: '"Shadows Into Light", cursive' }}
@@ -35,7 +36,11 @@ const Blog = () => {
       <br />
       <div className="row">
         {edit && (
-          <Link className="btn btn-info" to={"/CreatePost"}>
+          <Link
+            className="btn btn-info"
+            style={{ margin: "auto", marginBottom: 30 }}
+            to={"/CreatePost"}
+          >
             Create New Post
           </Link>
         )}

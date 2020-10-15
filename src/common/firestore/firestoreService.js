@@ -27,13 +27,16 @@ export function listenToPostFromFirestore(postId) {
   return db.collection("Blog").doc(postId);
 }
 
-var now = firestore.Timestamp.fromDate(new Date());
+const now = firestore.Timestamp.fromDate(new Date());
+
+let postImageId = cuid();
 
 export function addPostToFirestore(post) {
   return db.collection("Blog").add({
     ...post,
     date: now,
-    id: cuid(),
+    id: postImageId,
+    photoURL: "",
   });
 }
 
@@ -51,4 +54,29 @@ export function setUserProfileData(user) {
     email: user.email,
     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
   });
+}
+
+export async function updateBlogPhoto(downloadURL, filename, postId) {
+  let blogDocRef;
+  if (postId !== "undefined") {
+    blogDocRef = db.collection("Blog").doc(postId);
+  } else {
+    blogDocRef = db.collection("Blog").doc(postImageId);
+  }
+
+  try {
+    const blogDoc = await blogDocRef.get();
+    // if (blogDoc.data().photoURL) {
+    await db.collection("Blog").doc(postId).update({
+      photoURL: downloadURL,
+      filename: filename,
+    });
+    // }
+    // return await db.collection("Blog").doc(postId).collection("photos").add({
+    //   name: filename,
+    //   url: downloadURL,
+    // });
+  } catch (error) {
+    throw error;
+  }
 }

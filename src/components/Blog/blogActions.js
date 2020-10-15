@@ -39,6 +39,7 @@ export function createBlog(post) {
 }
 
 export function updateBlog(post) {
+  console.log("update", post);
   return {
     type: UPDATE_BLOG,
     payload: post,
