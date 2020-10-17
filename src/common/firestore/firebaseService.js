@@ -14,14 +14,17 @@ export async function socialLogin() {
   }
 }
 
-export function uploadBlogPicToFirebaseStorage(file, filename, postId) {
+export function uploadPicToFirebaseStorage(path, file, filename, postId) {
   const storageRef = firebase.storage().ref();
-  return storageRef.child(`blog_images/${postId}/${filename}`).put(file);
+  if (postId === undefined) {
+    return storageRef.child(`${path}/${filename}`).put(file);
+  }
+  return storageRef.child(`${path}/${postId}/${filename}`).put(file);
 }
 
-export function deleteFromFirebaseStorage(filename, postId) {
-  console.log(filename, postId);
+export function deletePicFromFirebaseStorage(path, filename, locationId) {
+  console.log(filename, locationId);
   const storageRef = firebase.storage().ref();
-  const photoRef = storageRef.child(`blog_images/${postId}/${filename}`);
+  const photoRef = storageRef.child(`${path}/${locationId}/${filename}`);
   return photoRef.delete();
 }

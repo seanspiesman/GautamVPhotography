@@ -27,6 +27,10 @@ export function listenToPostFromFirestore(postId) {
   return db.collection("Blog").doc(postId);
 }
 
+export function getBlogPhotos(postId) {
+  return db.collection("Blog").doc(postId).collection("photos");
+}
+
 const now = firestore.Timestamp.fromDate(new Date());
 
 let postImageId = cuid();
@@ -36,7 +40,6 @@ export function addPostToFirestore(post) {
     ...post,
     date: now,
     id: postImageId,
-    photoURL: "",
   });
 }
 
@@ -56,27 +59,40 @@ export function setUserProfileData(user) {
   });
 }
 
-export async function updateBlogPhoto(downloadURL, filename, postId) {
-  let blogDocRef;
-  if (postId !== "undefined") {
-    blogDocRef = db.collection("Blog").doc(postId);
-  } else {
-    blogDocRef = db.collection("Blog").doc(postImageId);
-  }
-
+export async function updateBlogPhoto(downloadURL, filename, postId, path) {
+  // let DocRef = db.collection(path).doc(postId);
   try {
-    const blogDoc = await blogDocRef.get();
-    // if (blogDoc.data().photoURL) {
-    await db.collection("Blog").doc(postId).update({
-      photoURL: downloadURL,
-      filename: filename,
-    });
-    // }
-    // return await db.collection("Blog").doc(postId).collection("photos").add({
-    //   name: filename,
-    //   url: downloadURL,
+    // const blogDoc = await DocRef.get();
+    // await db.collection(path).doc(postId).update({
+    //   photoURL: downloadURL,
+    //   filename: filename,
     // });
+    // console.log({ downloadURL, filename, postId, path });
+    await db.collection(path).doc(postId).collection("photos").add({
+      name: filename,
+      url: downloadURL,
+    });
   } catch (error) {
     throw error;
   }
+}
+
+//=====================ALBUMS=============================
+
+export function addPhotoToFirestore(downloadURL, filename, path) {
+  let newPath = path.split("/")[1];
+  console.log({ downloadURL, filename, newPath });
+  return db.collection(newPath).add({
+    date: now,
+    id: filename,
+    photoURL: downloadURL,
+  });
+}
+
+export function listenToAdventurePhotosFromFirestore() {
+  return db.collection("Adventure").orderBy("date");
+}
+
+export function deleteAdventurePhotoInFirestore(id) {
+  return db.collection("Adventure").doc(id).delete();
 }

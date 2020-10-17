@@ -1,13 +1,15 @@
 import { format } from "date-fns";
 import React from "react";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { deletePostInFirestore } from "../../common/firestore/firestoreService";
-import ImageDropzone from "./ImageDropzone";
+import { deletePostInFirestore } from "../../../common/firestore/firestoreService";
 
-const BlogItem = ({ post, match, edit }) => {
+const BlogItem = ({ post, edit }) => {
   const { title, description, id, photoURL } = post;
   let postDate = format(post.date, "PPPPpppp");
+
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="blog-post">
@@ -21,34 +23,11 @@ const BlogItem = ({ post, match, edit }) => {
           <div className="col-md-6">
             <p className="blog-post-text">{description}</p>
           </div>
-          {photoURL && (
-            <div className="col-md-6">
+          <div className="col-md-6">
+            {photoURL && (
               <img src={photoURL} alt="" style={{ width: "100%" }} />
-              {edit && (
-                <div className="text-right">
-                  <button
-                    onClick={() => deletePostInFirestore(id)}
-                    className="btn btn-danger"
-                  >
-                    Delete
-                  </button>{" "}
-                  <Link
-                    className="btn btn-primary"
-                    as={Link}
-                    to={`/ManagePost/${id}`}
-                  >
-                    Update
-                  </Link>
-                </div>
-              )}
-            </div>
-          )}
-
-          {edit && !photoURL && (
-            <div className="col-md-6">
-              <div className="text-center">
-                <ImageDropzone post={post} />
-              </div>
+            )}
+            {edit && (
               <div className="text-right">
                 <button
                   onClick={() => deletePostInFirestore(id)}
@@ -64,8 +43,8 @@ const BlogItem = ({ post, match, edit }) => {
                   Update
                 </Link>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
       <br />

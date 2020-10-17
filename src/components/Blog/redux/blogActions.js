@@ -2,12 +2,13 @@ import {
   asyncActionError,
   asyncActionFinish,
   asyncActionStart,
-} from "../../common/async/asyncReducer";
-import { fetchSampleData } from "../../common/mockAPI/mockApi";
+} from "../../../common/async/asyncReducer";
+import { fetchSampleData } from "../../../common/mockAPI/mockApi";
 import {
   CREATE_BLOG,
   DELETE_BLOG,
   FETCH_BLOG,
+  LISTEN_TO_BLOG_PHOTOS,
   UPDATE_BLOG,
 } from "./blogConstants";
 
@@ -28,6 +29,13 @@ export function listenToBlog(posts) {
   return {
     type: FETCH_BLOG,
     payload: posts,
+  };
+}
+
+export function listenToBlogPhotos(blogPhotos) {
+  return {
+    type: LISTEN_TO_BLOG_PHOTOS,
+    payload: blogPhotos,
   };
 }
 

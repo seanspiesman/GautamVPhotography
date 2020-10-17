@@ -6,11 +6,11 @@ import Adventure from "./components/Album/Adventure";
 import India from "./components/Album/India";
 import Japan from "./components/Album/Japan";
 import Blog from "./components/Blog/Blog";
-import PostForm from "./components/Blog/PostForm";
 import Contact from "./components/Contact";
 import Homepage from "./components/Homepage";
 import Navbar from "./components/Navbar";
-import LoginPage from './components/LoginPage'
+import LoginPage from "./components/LoginPage";
+import PostForm from "./components/Blog/components/PostForm";
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
               <Route exact path="/Albums/Japan" component={Japan} />
               <Route path="/Contact" component={Contact} />
               <Route path="/Blog" component={Blog} />
-              <Route path='/Login' component={LoginPage} />
+              <Route path="/Login" component={LoginPage} />
               <Route
                 path={["/CreatePost", "/ManagePost/:id"]}
                 component={PostForm}

@@ -1,15 +1,18 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { listenToPostsFromFirestore } from "../../common/firestore/firestoreService";
+import {
+  getBlogPhotos,
+  listenToPostsFromFirestore,
+} from "../../common/firestore/firestoreService";
 import useFirestoreCollection from "../../common/hooks/useFirestoreCollection";
 import LoadingComponent from "../LoadingComponent";
-import { listenToBlog } from "./blogActions";
-import BlogItem from "./BlogItem";
+import BlogItem from "./components/BlogItem";
+import { listenToBlog, listenToBlogPhotos } from "./redux/blogActions";
 
 const Blog = () => {
   const { auth, blog } = useSelector((state) => state);
-  let newblog = blog.posts.slice().reverse();
+  let oragnizeBlog = blog.posts.slice().reverse();
   let edit, admin;
   if (auth.currentUser) admin = auth.currentUser.email;
   if (admin === "sean.spies@gmail.com" || admin === "slohaputra@gmail.com")
@@ -19,9 +22,16 @@ const Blog = () => {
 
   useFirestoreCollection({
     query: () => listenToPostsFromFirestore(),
-    data: (posts) => dispatch(listenToBlog(posts)),
+    data: (post) => dispatch(listenToBlog(post)),
     deps: [dispatch],
   });
+
+  console.log(blog);
+  //  useFirestoreCollection({
+  //    query: () => getBlogPhotos(id),
+  //    data: (photos) => dispatch(listenToBlogPhotos(photos)),
+  //    deps: [dispatch],
+  //  });
 
   return (
     <div className="container">
@@ -45,8 +55,8 @@ const Blog = () => {
           </Link>
         )}
       </div>
-      {newblog ? (
-        newblog.map((post, index) => (
+      {oragnizeBlog ? (
+        oragnizeBlog.map((post, index) => (
           <BlogItem key={index} index={index} post={post} edit={edit} />
         ))
       ) : (

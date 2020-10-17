@@ -2,3 +2,4 @@ export const CREATE_BLOG = "CREATE_BLOG";
 export const UPDATE_BLOG = "UPDATE_BLOG";
 export const DELETE_BLOG = "DELETE_BLOG";
 export const FETCH_BLOG = "FETCH_BLOG";
+export const LISTEN_TO_BLOG_PHOTOS = "LISTEN_TO_BLOG_PHOTOS";
