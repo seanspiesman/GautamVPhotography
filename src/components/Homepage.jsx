@@ -42,12 +42,10 @@ const Homepage = () => {
               src="https://images.unsplash.com/Ys-DBJeX0nE.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
               alt="Third slide"
             />
-              <div class="carousel-caption d-none d-md-block">
-
-                <h5>Japan</h5>
-                <p>Test</p>
-              </div>
-
+            <div className="carousel-caption d-none d-md-block">
+              <h5>Japan</h5>
+              <p>Test</p>
+            </div>
           </div>
         </div>
         <a

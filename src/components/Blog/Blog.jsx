@@ -2,13 +2,14 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
-  getBlogPhotos,
+  // getBlogPhotos,
   listenToPostsFromFirestore,
 } from "../../common/firestore/firestoreService";
 import useFirestoreCollection from "../../common/hooks/useFirestoreCollection";
 import LoadingComponent from "../LoadingComponent";
 import BlogItem from "./components/BlogItem";
-import { listenToBlog, listenToBlogPhotos } from "./redux/blogActions";
+// import { listenToBlogPhotos } from "./photoRedux/blogPhotoActions";
+import { listenToBlog } from "./redux/blogActions";
 
 const Blog = () => {
   const { auth, blog } = useSelector((state) => state);
@@ -26,12 +27,11 @@ const Blog = () => {
     deps: [dispatch],
   });
 
-  console.log(blog);
-  //  useFirestoreCollection({
-  //    query: () => getBlogPhotos(id),
-  //    data: (photos) => dispatch(listenToBlogPhotos(photos)),
-  //    deps: [dispatch],
-  //  });
+  // useFirestoreCollection({
+  //   query: () => getBlogPhotos("uTr9qk00p7h028AbI3qt"),
+  //   data: (photos) => dispatch(listenToBlogPhotos(photos)),
+  //   deps: [dispatch],
+  // });
 
   return (
     <div className="container">

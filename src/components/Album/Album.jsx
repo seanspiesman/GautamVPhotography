@@ -2,13 +2,14 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ImageDropzone from "../ImageCropper/ImageDropzone";
 import useFirestoreCollection from "../../common/hooks/useFirestoreCollection";
-import { listenToAdventurePhotosFromFirestore } from "../../common/firestore/firestoreService";
+import { listenToAlbumPhotosFromFirestore } from "../../common/firestore/firestoreService";
 import { listenToPhotos } from "./redux/photoActions";
 
 import ResponsiveGallery from "react-responsive-gallery";
+import LoadingComponent from "../LoadingComponent";
 
 const Album = ({ title, path }) => {
-  const { auth, photos } = useSelector((state) => state);
+  const { auth, albumPhotos } = useSelector((state) => state);
   let edit, admin;
   if (auth.currentUser) admin = auth.currentUser.email;
   if (admin === "sean.spies@gmail.com" || admin === "slohaputra@gmail.com")
@@ -16,30 +17,38 @@ const Album = ({ title, path }) => {
 
   const dispatch = useDispatch();
   useFirestoreCollection({
-    query: () => listenToAdventurePhotosFromFirestore(),
+    query: () => listenToAlbumPhotosFromFirestore(path),
     data: (images) => dispatch(listenToPhotos(images)),
     deps: [dispatch],
   });
 
   const formatPhotoArr = [];
 
-  const formatPhotos = ({ photos }) => {
-    if (photos) {
-      for (let i = 0; i < photos.length; i++) {
-        formatPhotoArr.push({ src: photos[i].photoURL });
+  const formatPhotos = (albumPhotos) => {
+    if (albumPhotos) {
+      for (let i = 0; i < albumPhotos.photos.length; i++) {
+        formatPhotoArr.push({ src: albumPhotos.photos[i].photoURL });
       }
     }
   };
-  formatPhotos(photos);
+  formatPhotos(albumPhotos);
+
+  if (!path) {
+    return <LoadingComponent />;
+  }
 
   return (
     <div className="container">
-      <h3
+      <h1
         className="text-center"
-        style={{ fontFamily: '"Shadows Into Light", cursive', color: "white" }}
+        style={{
+          fontFamily: '"Shadows Into Light", cursive',
+          color: "white",
+          marginTop: "20px",
+        }}
       >
         {title}
-      </h3>
+      </h1>
 
       {auth && edit && <ImageDropzone path={path} />}
       <br />

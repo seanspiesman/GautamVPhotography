@@ -31,11 +31,6 @@ const Navbar = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto text-center">
-          {/* <li className="nav-item">
-            <Link className="nav-link link-text" as={NavLink} to={"/About"}>
-              ABOUT
-            </Link>
-          </li> */}
           <li className="nav-item dropdown link-text">
             <div
               className="nav-link dropdown-toggle"
@@ -56,23 +51,32 @@ const Navbar = () => {
             >
               <Link
                 className="dropdown-item dd-link-text"
-                to={"/Albums/Adventure"}
+                to={"/Albums/Alaska"}
               >
                 ALASKA
               </Link>
-              <Link className="dropdown-item dd-link-text" to={"/Albums/India"}>
+              <Link className="dropdown-item dd-link-text" to={"/Albums/Japan"}>
                 JAPAN
               </Link>
-              <Link className="dropdown-item dd-link-text" to={"/Albums/Japan"}>
+              <Link
+                className="dropdown-item dd-link-text"
+                to={"/Albums/PacificNW"}
+              >
                 PACIFIC NW
               </Link>
-               <Link className="dropdown-item dd-link-text" to={"/Albums/Japan"}>
+              <Link
+                className="dropdown-item dd-link-text"
+                to={"/Albums/Rockies"}
+              >
                 ROCKY MOUNTAINS
               </Link>
-              <Link className="dropdown-item dd-link-text" to={"/Albums/Japan"}>
+              <Link className="dropdown-item dd-link-text" to={"/Albums/Utah"}>
                 UTAH
               </Link>
-              <Link className="dropdown-item dd-link-text" to={"/Albums/Japan"}>
+              <Link
+                className="dropdown-item dd-link-text"
+                to={"/Albums/WestUS"}
+              >
                 WEST US
               </Link>
             </div>
@@ -97,11 +101,14 @@ const Navbar = () => {
             >
               <Link
                 className="dropdown-item dd-link-text"
-                to={"/Albums/Adventure"}
+                to={"/Albums/Pacific"}
               >
                 PACIFIC
               </Link>
-              <Link className="dropdown-item dd-link-text" to={"/Albums/India"}>
+              <Link
+                className="dropdown-item dd-link-text"
+                to={"/Albums/America"}
+              >
                 AMERICA
               </Link>
             </div>
@@ -124,13 +131,13 @@ const Navbar = () => {
               aria-labelledby="navbarDropdown"
               role="button"
             >
-              <Link
-                className="dropdown-item dd-link-text"
-                to={"/Albums/Adventure"}
-              >
+              <Link className="dropdown-item dd-link-text" to={"/Albums/C130"}>
                 C-130J
               </Link>
-              <Link className="dropdown-item dd-link-text" to={"/Albums/India"}>
+              <Link
+                className="dropdown-item dd-link-text"
+                to={"/Albums/Aerial"}
+              >
                 AERIAL
               </Link>
             </div>

@@ -9,7 +9,7 @@ import {
   updateBlogPhoto,
 } from "../../common/firestore/firestoreService";
 import {
-  deletePicFromFirebaseStorage,
+  // deletePicFromFirebaseStorage,
   uploadPicToFirebaseStorage,
 } from "../../common/firestore/firebaseService";
 
@@ -66,9 +66,8 @@ function ImageDropzone({ post, path }) {
       },
       () => {
         uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-          console.log(postId);
           if (postId) {
-            updateBlogPhoto(downloadURL, filename, postId, path)
+            updateBlogPhoto(downloadURL, filename, postId, path, post)
               .then((results) => {
                 console.log(results.data());
                 setLoading(false);
@@ -95,13 +94,13 @@ function ImageDropzone({ post, path }) {
     );
   }
 
-  async function handleDeletePhoto(filename, postId) {
-    try {
-      await deletePicFromFirebaseStorage(filename, postId);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // async function handleDeletePhoto(filename, postId) {
+  //   try {
+  //     await deletePicFromFirebaseStorage(filename, postId);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   const onDrop = useCallback(
     (acceptedFiles) => {

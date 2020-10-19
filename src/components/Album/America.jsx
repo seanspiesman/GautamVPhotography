@@ -1,16 +1,15 @@
 import React from "react";
-// import Sandbox from "../sandbox/Sandbox";
 import Album from "./Album";
 
-const Japan = ({ location }) => {
+const America = ({ location }) => {
   const path = location.pathname.substring(1);
   return (
     <div>
       <div>
-        <Album path={path} title={"Japan"} />
+        <Album path={path} title={"America"} />
       </div>
     </div>
   );
 };
 
-export default Japan;
+export default America;

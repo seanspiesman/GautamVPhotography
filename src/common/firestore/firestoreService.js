@@ -40,6 +40,7 @@ export function addPostToFirestore(post) {
     ...post,
     date: now,
     id: postImageId,
+    photoArray: [],
   });
 }
 
@@ -59,19 +60,25 @@ export function setUserProfileData(user) {
   });
 }
 
-export async function updateBlogPhoto(downloadURL, filename, postId, path) {
-  // let DocRef = db.collection(path).doc(postId);
+export async function updateBlogPhoto(
+  downloadURL,
+  filename,
+  postId,
+  path,
+  post
+) {
+  // let DocRef = await db.collection(path).doc(postId);
   try {
     // const blogDoc = await DocRef.get();
-    // await db.collection(path).doc(postId).update({
-    //   photoURL: downloadURL,
-    //   filename: filename,
-    // });
-    // console.log({ downloadURL, filename, postId, path });
-    await db.collection(path).doc(postId).collection("photos").add({
-      name: filename,
-      url: downloadURL,
-    });
+    // const objData = blogDoc.data().photoArray;
+    let photoObj = { filename, downloadURL };
+    console.log(post.photoArray);
+    await db
+      .collection(path)
+      .doc(postId)
+      .update({
+        photoArray: [...post.photoArray, photoObj],
+      });
   } catch (error) {
     throw error;
   }
@@ -89,10 +96,15 @@ export function addPhotoToFirestore(downloadURL, filename, path) {
   });
 }
 
-export function listenToAdventurePhotosFromFirestore() {
-  return db.collection("Adventure").orderBy("date");
+export function listenToAlbumPhotosFromFirestore(path) {
+  if (path) {
+    let newPath = path.split("/")[1];
+    return db.collection(newPath).orderBy("date");
+  }
 }
 
-export function deleteAdventurePhotoInFirestore(id) {
-  return db.collection("Adventure").doc(id).delete();
+export function deleteAdventurePhotoInFirestore(path, id) {
+  let newPath = path.split("/")[1];
+
+  return db.collection(newPath).doc(id).delete();
 }
