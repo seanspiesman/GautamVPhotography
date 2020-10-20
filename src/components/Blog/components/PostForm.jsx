@@ -25,20 +25,12 @@ const PostForm = (props) => {
   let post = useSelector((state) =>
     state.blog.posts.find((e) => e.id === match.params.id)
   );
-  const { blog } = useSelector((state) => state);
 
   const initialValues = post ?? {
     title: "",
     description: "",
     photoArray: [],
   };
-
-  useEffect(() => {
-    // Update the document title using the browser API
-    if (path === "CreatePost") {
-      addPostToFirestore(initialValues);
-    }
-  }, []);
 
   useFirestoreCollection({
     shouldExecute: location.pathname === "/CreatePost",
@@ -47,48 +39,32 @@ const PostForm = (props) => {
     deps: [dispatch],
   });
 
-  let id;
-  if (blog.posts[0]) {
-    id = blog.posts[blog.posts.length - 1].id;
-    if (post === undefined) {
-      post = blog.posts[blog.posts.length - 1];
-    }
-  }
-
   const validationSchema = Yup.object({
     title: Yup.string().required("You must provide a blog title"),
     description: Yup.string().required("You must provide post content"),
   });
 
-  useFirestoreDoc({
-    shouldExecute: !!match.params.id && location.pathname !== "/CreatePost",
-    query: () => listenToPostFromFirestore(match.params.id || id),
-    data: (post) => dispatch(listenToBlog([post])),
-    deps: [match.params.id || id, dispatch],
-  });
-
-  if (!post) return <LoadingComponent />;
+  if (loading) return <LoadingComponent />;
 
   return (
     <div className="container">
       <h1 style={{ color: "white" }}>
-        {post.title.length === 0 ? "Edit the post" : "Create new post"}
+        {post ? "Edit the post" : "Create new post"}
       </h1>
       <Formik
         onSubmit={async (values, { setSubmitting }) => {
           try {
-            // post
-            //   ?
-            await updatePostInFirestore(values);
-            // : await addPostToFirestore(values);
-            // history.push("/Blog");
+            post
+              ? await updatePostInFirestore(values)
+              : await addPostToFirestore(values);
+            history.push("/Blog");
           } catch (error) {
             console.log(error);
             setSubmitting(false);
             history.push("/Blog");
           }
         }}
-        initialValues={post}
+        initialValues={initialValues}
         validationSchema={validationSchema}
       >
         <Form>
@@ -121,8 +97,12 @@ const PostForm = (props) => {
               ))}
           </div>
           <br />
-          <ImageDropzone post={post} path={"Blog"} />
-          <button type="submit" className="btn btn-primary">
+          {post && <ImageDropzone post={post} path={"Blog"} />}
+          <button
+            // onClick={() => history.push("/Blog")}
+            type="submit"
+            className="btn btn-primary"
+          >
             Submit
           </button>
         </Form>

@@ -30,9 +30,10 @@ const BlogItem = ({ post, edit }) => {
           </div>
           {photoArray && photoArray[0] && (
             <>
-              <div className="col-md-12 text-center">
+              <div className="col-md-3"></div>
+              <div className="col-md-6 text-center">
                 <div
-                  id="carouselExampleControls"
+                  id={`carousel${id}`}
                   className="carousel slide"
                   data-ride="carousel"
                 >
@@ -102,7 +103,7 @@ const BlogItem = ({ post, edit }) => {
                 </div>
                 <a
                   className="carousel-control-prev"
-                  href="#carouselExampleControls"
+                  href={`#carousel${id}`}
                   role="button"
                   data-slide="prev"
                 >
@@ -114,7 +115,7 @@ const BlogItem = ({ post, edit }) => {
                 </a>
                 <a
                   className="carousel-control-next"
-                  href="#carouselExampleControls"
+                  href={`#carousel${id}`}
                   role="button"
                   data-slide="next"
                 >
@@ -126,12 +127,12 @@ const BlogItem = ({ post, edit }) => {
                 </a>
                 <br />
               </div>
+              <div className="col-md-3"></div>
             </>
           )}
           {edit && (
             <>
-              <div className="col-md-3"></div>
-              <div className="col-md-6">
+              <div className="col-md-12">
                 <div className="text-right">
                   <button
                     onClick={() => deletePostInFirestore(id)}
@@ -148,7 +149,6 @@ const BlogItem = ({ post, edit }) => {
                   </Link>
                 </div>
               </div>
-              <div className="col-md-3"></div>
             </>
           )}
         </div>
