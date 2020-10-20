@@ -5,6 +5,7 @@
   font-family: "EB Garamond", serif;
 }
 
+html,
 #root {
   background-color: rgb(41, 41, 41);
   min-height: 100vh;

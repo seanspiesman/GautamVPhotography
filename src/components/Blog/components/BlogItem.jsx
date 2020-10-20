@@ -1,6 +1,8 @@
 import { format } from "date-fns";
 import React from "react";
 import { Link } from "react-router-dom";
+// import { array } from "yup";
+import { deletePicFromFirebaseStorage } from "../../../common/firestore/firebaseService";
 import { deletePostInFirestore } from "../../../common/firestore/firestoreService";
 
 const slide = [
@@ -15,6 +17,20 @@ const slide = [
 const BlogItem = ({ post, edit }) => {
   const { title, description, id, photoArray } = post;
   let postDate = format(post.date, "PPPPpppp");
+
+  async function handleDeletePost(path, id, photoArray) {
+    try {
+      let filename;
+      for (let photo of photoArray) {
+        filename = photo.filename;
+        await deletePicFromFirebaseStorage(path, filename, id);
+      }
+      await deletePostInFirestore(id);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <div className="blog-post">
@@ -135,7 +151,9 @@ const BlogItem = ({ post, edit }) => {
               <div className="col-md-12">
                 <div className="text-right">
                   <button
-                    onClick={() => deletePostInFirestore(id)}
+                    onClick={() => {
+                      handleDeletePost("Blog", id, photoArray);
+                    }}
                     className="btn btn-danger"
                   >
                     Delete

@@ -67,12 +67,8 @@ export async function updateBlogPhoto(
   path,
   post
 ) {
-  // let DocRef = await db.collection(path).doc(postId);
   try {
-    // const blogDoc = await DocRef.get();
-    // const objData = blogDoc.data().photoArray;
     let photoObj = { filename, downloadURL };
-    console.log(post.photoArray);
     await db
       .collection(path)
       .doc(postId)
@@ -91,7 +87,7 @@ export function addPhotoToFirestore(downloadURL, filename, path) {
   console.log({ downloadURL, filename, newPath });
   return db.collection(newPath).add({
     date: now,
-    id: filename,
+    filename: filename,
     photoURL: downloadURL,
   });
 }
@@ -103,8 +99,11 @@ export function listenToAlbumPhotosFromFirestore(path) {
   }
 }
 
-export function deleteAdventurePhotoInFirestore(path, id) {
+export function deleteAlbumPhotoFromCollection(path, id) {
   let newPath = path.split("/")[1];
+  console.log(newPath, id);
 
   return db.collection(newPath).doc(id).delete();
 }
+
+export function deleteAlbumPhotoInFirestore(path, filename) {}

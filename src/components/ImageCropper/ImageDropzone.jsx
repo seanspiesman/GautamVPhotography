@@ -96,7 +96,7 @@ function ImageDropzone({ post, path }) {
 
   // async function handleDeletePhoto(filename, postId) {
   //   try {
-  //     await deletePicFromFirebaseStorage(filename, postId);
+  // await deletePicFromFirebaseStorage(filename, postId);
   //   } catch (error) {
   //     console.log(error);
   //   }

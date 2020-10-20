@@ -23,8 +23,13 @@ export function uploadPicToFirebaseStorage(path, file, filename, postId) {
 }
 
 export function deletePicFromFirebaseStorage(path, filename, locationId) {
-  console.log(filename, locationId);
   const storageRef = firebase.storage().ref();
-  const photoRef = storageRef.child(`${path}/${locationId}/${filename}`);
+  let photoRef;
+  if (locationId !== undefined) {
+    photoRef = storageRef.child(`${path}/${locationId}/${filename}`);
+  } else {
+    console.log("undefined");
+    photoRef = storageRef.child(`${path}/${filename}`);
+  }
   return photoRef.delete();
 }
