@@ -5,15 +5,6 @@ import { Link } from "react-router-dom";
 import { deletePicFromFirebaseStorage } from "../../../common/firestore/firebaseService";
 import { deletePostInFirestore } from "../../../common/firestore/firestoreService";
 
-const slide = [
-  "First slide",
-  "Second slide",
-  "Third slide",
-  "Fourth slide",
-  "Fifth slide",
-  "Sixth slide",
-  "Seventh slide",
-];
 const BlogItem = ({ post, edit }) => {
   const { title, description, id, photoArray } = post;
   let postDate = format(post.date, "PPPPpppp");
@@ -117,30 +108,34 @@ const BlogItem = ({ post, edit }) => {
                     )}
                   </div>
                 </div>
-                <a
-                  className="carousel-control-prev"
-                  href={`#carousel${id}`}
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    className="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span className="sr-only">Previous</span>
-                </a>
-                <a
-                  className="carousel-control-next"
-                  href={`#carousel${id}`}
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    className="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span className="sr-only">Next</span>
-                </a>
+                {photoArray[1] && (
+                  <>
+                    <a
+                      className="carousel-control-prev"
+                      href={`#carousel${id}`}
+                      role="button"
+                      data-slide="prev"
+                    >
+                      <span
+                        className="carousel-control-prev-icon"
+                        aria-hidden="true"
+                      ></span>
+                      <span className="sr-only">Previous</span>
+                    </a>
+                    <a
+                      className="carousel-control-next"
+                      href={`#carousel${id}`}
+                      role="button"
+                      data-slide="next"
+                    >
+                      <span
+                        className="carousel-control-next-icon"
+                        aria-hidden="true"
+                      ></span>
+                      <span className="sr-only">Next</span>
+                    </a>
+                  </>
+                )}
                 <br />
               </div>
               <div className="col-md-3"></div>

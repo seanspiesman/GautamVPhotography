@@ -8,7 +8,7 @@
 html,
 #root {
   background-color: rgb(41, 41, 41);
-  min-height: 100vh;
+  min-height: 120vh;
 }
 
 #homepage-button-div {
@@ -28,6 +28,10 @@ html,
   font-weight: bold;
   font-family: "EB Garamond", serif;
   /* "Shadows Into Light", cursive; */
+}
+
+.bg-dark {
+  background-color: #212121 !important;
 }
 
 .dd-link-text {
