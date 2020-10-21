@@ -65,9 +65,14 @@ const Blog = () => {
                 {sidebarArr.reverse().map((date, index) => {
                   return (
                     <li key={index} className="sidebar-link">
-                      <a className="sidebar-link-a" href={`#${date}`}>
+                      <div
+                        className="sidebar-link-a"
+                        onClick={() => {
+                          document.getElementById(date).scrollIntoView();
+                        }}
+                      >
                         {date}
-                      </a>
+                      </div>
                     </li>
                   );
                 })}

@@ -40,13 +40,13 @@
 
 .blog-post-title {
   color: white;
-  font-family: sans-serif;
+  font-family: '"Kumbh Sans", sans-serif';
 }
 
 .blog-post-text {
   font-size: 15px;
   color: white;
-  font-family: sans-serif;
+  font-family: '"Kumbh Sans", sans-serif';
   white-space: pre-wrap;
   overflow-wrap: break-word;
 }
@@ -75,4 +75,5 @@
 
 .sidebar-link-a:hover {
   color: rgb(158, 158, 158);
+  cursor: pointer;
 }

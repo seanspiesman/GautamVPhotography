@@ -5,7 +5,7 @@ const Homepage = () => {
     <>
       <div
         className="container text-center"
-        style={{ color: "white", fontFamily: "sans-serif" }}
+        style={{ color: "white", fontFamily: '"Kumbh Sans", sans-serif' }}
       >
         <h2>Selected Works</h2>
         <div className="row">

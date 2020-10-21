@@ -44,7 +44,7 @@ const Navbar = () => {
               LANDSCAPES
             </div>
             <div
-              className="dropdown-menu text-center"
+              className="dropdown-menu text-center fade-down"
               style={{ padding: "0px" }}
               aria-labelledby="navbarDropdown"
               role="button"
@@ -94,7 +94,7 @@ const Navbar = () => {
               CITYSCAPES
             </div>
             <div
-              className="dropdown-menu text-center"
+              className="dropdown-menu fade-down text-center"
               style={{ padding: "0px" }}
               aria-labelledby="navbarDropdown"
               role="button"
@@ -126,7 +126,7 @@ const Navbar = () => {
               FLYING
             </div>
             <div
-              className="dropdown-menu text-center"
+              className="dropdown-menu fade-down text-center"
               style={{ padding: "0px" }}
               aria-labelledby="navbarDropdown"
               role="button"

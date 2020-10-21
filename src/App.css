@@ -1,3 +1,12 @@
+html,
+#root {
+  background-color: rgb(41, 41, 41);
+  min-height: 120vh;
+  scroll-behavior: smooth;
+}
+
+/* ----------------------Homepage----------------------- */
+
 #homepage-title {
   font-size: 170%;
   font-weight: bold;
@@ -11,11 +20,29 @@
   }
 }
 
-html,
-#root {
-  background-color: rgb(41, 41, 41);
-  min-height: 120vh;
-  scroll-behavior: smooth;
+#homepage-title:hover {
+  color: rgb(177, 177, 177);
+}
+
+.home-page-image:hover {
+  color: white;
+  text-shadow: 0px 0px 5px black;
+}
+
+.centered-text {
+  font-family: "Kumbh Sans", sans-serif;
+  position: absolute;
+  font-size: 30px;
+  z-index: 1000;
+  color: white;
+  left: 50%;
+  text-shadow: 0px 0px 2px black;
+  transform: translate(-50%, -50%);
+}
+
+.image-gallery {
+  height: auto;
+  width: 100%;
 }
 
 #homepage-button-div {
@@ -48,17 +75,47 @@ html,
   }
   #homepage-image-two {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 20px;
   }
   #homepage-image-three {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 20px;
+  }
+}
+
+/* -----------------Navbar--------------- */
+
+@media all and (min-width: 767px) {
+  .navbar .nav-item .dropdown-menu {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    margin-top: 0;
+  }
+  .navbar .nav-item:hover .nav-link {
+    color: #fff;
+  }
+  .navbar .dropdown-menu.fade-down {
+    top: 80%;
+    transform: rotateX(-75deg);
+    transform-origin: 0% 0%;
+  }
+  .navbar .dropdown-menu.fade-up {
+    top: 180%;
+  }
+  .navbar .nav-item:hover .dropdown-menu {
+    transition: 0.3s;
+    opacity: 1;
+    visibility: visible;
+    top: 100%;
+    transform: rotateX(0deg);
   }
 }
 
 .link-text {
   background-color: #212121 !important;
-  font-size: 100% !important;
+  /* font-size: 1rem !important; */
   font-weight: bold;
   font-family: "EB Garamond", serif;
   /* "Shadows Into Light", cursive; */
@@ -71,33 +128,10 @@ html,
 .dd-link-text {
   background-color: #212121 !important;
   color: white !important;
-  font-size: 100% !important;
+  /* font-size: 1.5rem !important; */
 }
 
-#homepage-title:hover {
-  color: rgb(177, 177, 177);
-}
-
-.home-page-image:hover {
-  color: white;
-  text-shadow: 0px 0px 5px black;
-}
-
-.centered-text {
-  font-family: "Noto Serif JP", serif;
-  position: absolute;
-  font-size: 30px;
-  z-index: 1000;
-  color: white;
-  left: 50%;
-  text-shadow: 0px 0px 2px black;
-  transform: translate(-50%, -50%);
-}
-
-.image-gallery {
-  height: auto;
-  width: 100%;
-}
+/* ----------------------------------------aboutpage---------------------------- */
 
 .about-page-title {
   color: white;
