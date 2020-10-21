@@ -1,8 +1,14 @@
 #homepage-title {
-  font-size: 200%;
+  font-size: 170%;
   font-weight: bold;
   text-shadow: 0px 0px 1px black;
   font-family: "EB Garamond", serif;
+}
+
+@media (max-width: 991px) {
+  #homepage-title {
+    font-size: 135%;
+  }
 }
 
 html,
@@ -34,6 +40,20 @@ html,
 #homepage-image-three {
   width: 100%;
   margin-top: 100px;
+}
+
+@media only screen and (max-width: 991px) {
+  #homepage-image-one {
+    width: 100%;
+  }
+  #homepage-image-two {
+    width: 100%;
+    margin-top: 10px;
+  }
+  #homepage-image-three {
+    width: 100%;
+    margin-top: 10px;
+  }
 }
 
 .link-text {
@@ -81,11 +101,11 @@ html,
 
 .about-page-title {
   color: white;
-  font-family: "Shadows Into Light", cursive;
+  font-family: sans-serif;
 }
 
 .about-page-text {
   font-size: 30px;
   color: white;
-  font-family: "Shadows Into Light", cursive;
+  font-family: sans-serif;
 }

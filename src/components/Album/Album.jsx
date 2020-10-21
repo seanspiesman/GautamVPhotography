@@ -28,7 +28,6 @@ const Album = ({ title, path }) => {
 
   const formatPhotoArr = [];
 
-
   if (!edit) {
     const formatPhotos = (albumPhotos) => {
       if (albumPhotos && albumPhotos.photos) {
@@ -92,7 +91,7 @@ const Album = ({ title, path }) => {
       <h1
         className="text-center"
         style={{
-          fontFamily: '"Shadows Into Light", cursive',
+          fontFamily: "sans serif",
           color: "white",
           marginTop: "20px",
         }}

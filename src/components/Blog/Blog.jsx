@@ -35,14 +35,12 @@ const Blog = () => {
     sidebarArr.push(formattedDate);
   }
 
-  console.log(sidebarArr);
-
   return (
     <div className="container">
       <br />
       <h1
         className="text-center"
-        style={{ color: "white", fontFamily: '"Shadows Into Light", cursive' }}
+        style={{ color: "white", fontFamily: "sans serif" }}
       >
         A Day in the Life
       </h1>

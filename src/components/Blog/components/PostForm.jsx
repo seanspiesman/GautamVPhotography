@@ -13,12 +13,12 @@ import {
 } from "../../../common/firestore/firestoreService";
 import MyTextInput from "../../../common/form/MyTextInput";
 import MyTextArea from "../../../common/form/MyTextArea";
-import useFirestoreDoc from "../../../common/hooks/useFirestoreDoc";
+// import useFirestoreDoc from "../../../common/hooks/useFirestoreDoc";
 import useFirestoreCollection from "../../../common/hooks/useFirestoreCollection";
 
 const PostForm = (props) => {
   const { match, location, history } = props;
-  const path = location.pathname.substring(1);
+  // const path = location.pathname.substring(1);
   const { loading } = useSelector((state) => state.async);
   const dispatch = useDispatch();
   let post = useSelector((state) =>

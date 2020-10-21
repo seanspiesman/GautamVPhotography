@@ -6,8 +6,8 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-      <Link to={"/"} id="homepage-title" className="navbar-brand">
-        <h1>
+      <Link to={"/"} className="navbar-brand">
+        <h1 id="homepage-title">
           Gautam <br /> Venkataraman
           <br />
           <p
@@ -44,8 +44,8 @@ const Navbar = () => {
               LANDSCAPES
             </div>
             <div
-              className="dropdown-menu"
-              style={{ padding: "0px", left: "40%" }}
+              className="dropdown-menu text-center"
+              style={{ padding: "0px" }}
               aria-labelledby="navbarDropdown"
               role="button"
             >
@@ -94,8 +94,8 @@ const Navbar = () => {
               CITYSCAPES
             </div>
             <div
-              className="dropdown-menu"
-              style={{ padding: "0px", left: "40%" }}
+              className="dropdown-menu text-center"
+              style={{ padding: "0px" }}
               aria-labelledby="navbarDropdown"
               role="button"
             >
@@ -126,8 +126,8 @@ const Navbar = () => {
               FLYING
             </div>
             <div
-              className="dropdown-menu"
-              style={{ padding: "0px", left: "40%" }}
+              className="dropdown-menu text-center"
+              style={{ padding: "0px" }}
               aria-labelledby="navbarDropdown"
               role="button"
             >

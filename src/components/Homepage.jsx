@@ -5,9 +5,9 @@ const Homepage = () => {
     <>
       <div
         className="container text-center"
-        style={{ color: "white", fontFamily: '"Shadows Into Light", cursive' }}
+        style={{ color: "white", fontFamily: "sans-serif" }}
       >
-        <h1>Selected Works</h1>
+        <h2>Selected Works</h2>
         <div className="row">
           <div className="col-lg-6">
             <img
