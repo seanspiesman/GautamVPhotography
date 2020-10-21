@@ -23,6 +23,19 @@ html,
   color: black;
 }
 
+#homepage-image-one {
+  width: 100%;
+}
+
+#homepage-image-two {
+  width: 100%;
+  margin-top: 50px;
+}
+#homepage-image-three {
+  width: 100%;
+  margin-top: 100px;
+}
+
 .link-text {
   background-color: #212121 !important;
   font-size: 100% !important;

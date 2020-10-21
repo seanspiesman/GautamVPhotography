@@ -67,7 +67,9 @@ const Blog = () => {
                 {sidebarArr.reverse().map((date, index) => {
                   return (
                     <li key={index} className="sidebar-link">
-                      <a href={`#${date}`}>{date}</a>
+                      <a className="sidebar-link-a" href={`#${date}`}>
+                        {date}
+                      </a>
                     </li>
                   );
                 })}

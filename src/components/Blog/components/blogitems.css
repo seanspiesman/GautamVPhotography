@@ -47,6 +47,8 @@
   font-size: 15px;
   color: white;
   font-family: sans-serif;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 .sidebar {
@@ -65,4 +67,12 @@
   font-size: 12px;
   background-color: rgb(65, 65, 65);
   list-style-type: none;
+}
+
+.sidebar-link-a {
+  color: white;
+}
+
+.sidebar-link-a:hover {
+  color: rgb(158, 158, 158);
 }

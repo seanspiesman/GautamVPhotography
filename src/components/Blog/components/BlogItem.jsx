@@ -33,7 +33,7 @@ const BlogItem = ({ post, edit }) => {
               {postDate}
             </div>
           </h1>
-          <p className="blog-post-text">{description}</p>
+          <pre className="blog-post-text">{description}</pre>
           {/* bootstrap image gallery */}
           {photoArray && photoArray[0] && (
             <div className="row">
