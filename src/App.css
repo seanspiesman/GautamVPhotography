@@ -9,6 +9,7 @@ html,
 #root {
   background-color: rgb(41, 41, 41);
   min-height: 120vh;
+  scroll-behavior: smooth;
 }
 
 #homepage-button-div {
@@ -74,22 +75,4 @@ html,
   font-size: 30px;
   color: white;
   font-family: "Shadows Into Light", cursive;
-}
-
-.blog-post {
-  color: white;
-  border: 6px solid purple;
-  border-radius: 12px;
-  padding: 20px;
-}
-
-.blog-post-title {
-  color: white;
-  font-family: sans-serif;
-}
-
-.blog-post-text {
-  font-size: 25px;
-  color: white;
-  font-family: sans-serif;
 }

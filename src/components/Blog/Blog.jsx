@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -27,11 +28,14 @@ const Blog = () => {
     deps: [dispatch],
   });
 
-  // useFirestoreCollection({
-  //   query: () => getBlogPhotos("uTr9qk00p7h028AbI3qt"),
-  //   data: (photos) => dispatch(listenToBlogPhotos(photos)),
-  //   deps: [dispatch],
-  // });
+  let formattedDate;
+  let sidebarArr = [];
+  for (let i = 0; i < blog.posts.length; i++) {
+    formattedDate = format(blog.posts[i].date, "PP");
+    sidebarArr.push(formattedDate);
+  }
+
+  console.log(sidebarArr);
 
   return (
     <div className="container">
@@ -55,13 +59,30 @@ const Blog = () => {
           </Link>
         )}
       </div>
-      {oragnizeBlog ? (
-        oragnizeBlog.map((post, index) => (
-          <BlogItem key={index} index={index} post={post} edit={edit} />
-        ))
-      ) : (
-        <LoadingComponent />
-      )}
+      <div className="row">
+        {oragnizeBlog ? (
+          <>
+            <div className="col-md-2">
+              <ul className="sidebar">
+                {sidebarArr.reverse().map((date, index) => {
+                  return (
+                    <li key={index} className="sidebar-link">
+                      <a href={`#${date}`}>{date}</a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div className="col-md-10">
+              {oragnizeBlog.map((post, index) => (
+                <BlogItem key={index} index={index} post={post} edit={edit} />
+              ))}
+            </div>
+          </>
+        ) : (
+          <LoadingComponent />
+        )}
+      </div>
     </div>
   );
 };

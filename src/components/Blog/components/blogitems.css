@@ -18,10 +18,51 @@
   color: green;
 }
 
-.upload-image-button{
+.upload-image-button {
   background-color: rgb(51, 245, 51);
 }
 
-.cancel-upload-image-button{
-  background-color: gray
+.cancel-upload-image-button {
+  background-color: gray;
+}
+
+.carousel-item-image {
+  height: 300px !important;
+}
+
+.blog-post {
+  background-color: rgb(65, 65, 65);
+  color: white;
+  border: 6px solid rgb(93, 93, 93);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.blog-post-title {
+  color: white;
+  font-family: sans-serif;
+}
+
+.blog-post-text {
+  font-size: 15px;
+  color: white;
+  font-family: sans-serif;
+}
+
+.sidebar {
+  background-color: rgb(65, 65, 65);
+  color: white;
+  border: 6px solid rgb(93, 93, 93);
+  border-radius: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 50px;
+  text-align: center !important;
+  padding: 5px 0px 5px 0px;
+}
+
+.sidebar-link {
+  font-size: 12px;
+  background-color: rgb(65, 65, 65);
+  list-style-type: none;
 }

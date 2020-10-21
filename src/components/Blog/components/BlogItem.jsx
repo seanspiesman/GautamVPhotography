@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 // import { array } from "yup";
 import { deletePicFromFirebaseStorage } from "../../../common/firestore/firebaseService";
 import { deletePostInFirestore } from "../../../common/firestore/firestoreService";
+import "./blogitems.css";
 
 const BlogItem = ({ post, edit }) => {
   const { title, description, id, photoArray } = post;
-  let postDate = format(post.date, "PPPPpppp");
-
+  let postDate = format(post.date, "PPPP");
+  let sidebarDate = format(post.date, "PP");
   async function handleDeletePost(path, id, photoArray) {
     try {
       let filename;
@@ -24,21 +25,20 @@ const BlogItem = ({ post, edit }) => {
 
   return (
     <>
-      <div className="blog-post">
-        <h1 className="blog-post-title">
-          {title}
-          <div style={{ fontSize: "12px" }} className="text-muted">
-            {postDate}
-          </div>
-        </h1>
-        <div className="row">
-          <div className="col-md-12">
-            <p className="blog-post-text">{description}</p>
-          </div>
+      <div className="row">
+        <div className="col-md-12 blog-post" id={sidebarDate}>
+          <h1 className="blog-post-title">
+            {title}
+            <div style={{ fontSize: "12px" }} className="text-muted">
+              {postDate}
+            </div>
+          </h1>
+          <p className="blog-post-text">{description}</p>
+          {/* bootstrap image gallery */}
           {photoArray && photoArray[0] && (
-            <>
+            <div className="row">
               <div className="col-md-3"></div>
-              <div className="col-md-6 text-center">
+              <div className="col-md-6 text-center ">
                 <div
                   id={`carousel${id}`}
                   className="carousel slide"
@@ -47,7 +47,7 @@ const BlogItem = ({ post, edit }) => {
                   <div className="carousel-inner">
                     <div className="carousel-item active">
                       <img
-                        style={{ height: "300px" }}
+                        className="carousel-item-image"
                         src={photoArray[0].downloadURL}
                         alt="First slide"
                       />
@@ -55,7 +55,7 @@ const BlogItem = ({ post, edit }) => {
                     {photoArray[1] && (
                       <div className="carousel-item">
                         <img
-                          style={{ height: "300px" }}
+                          className="carousel-item-image"
                           src={photoArray[1].downloadURL}
                           alt="Second slide"
                         />
@@ -64,7 +64,7 @@ const BlogItem = ({ post, edit }) => {
                     {photoArray[2] && (
                       <div className="carousel-item">
                         <img
-                          style={{ height: "300px" }}
+                          className="carousel-item-image"
                           src={photoArray[2].downloadURL}
                           alt="Third slide"
                         />
@@ -73,7 +73,7 @@ const BlogItem = ({ post, edit }) => {
                     {photoArray[3] && (
                       <div className="carousel-item">
                         <img
-                          style={{ height: "300px" }}
+                          className="carousel-item-image"
                           src={photoArray[3].downloadURL}
                           alt="Fourth slide"
                         />
@@ -82,7 +82,7 @@ const BlogItem = ({ post, edit }) => {
                     {photoArray[4] && (
                       <div className="carousel-item">
                         <img
-                          style={{ height: "300px" }}
+                          className="carousel-item-image"
                           src={photoArray[4].downloadURL}
                           alt="Fifth slide"
                         />
@@ -91,7 +91,7 @@ const BlogItem = ({ post, edit }) => {
                     {photoArray[5] && (
                       <div className="carousel-item">
                         <img
-                          style={{ height: "300px" }}
+                          className="carousel-item-image"
                           src={photoArray[5].downloadURL}
                           alt="Sixth slide"
                         />
@@ -100,6 +100,7 @@ const BlogItem = ({ post, edit }) => {
                     {photoArray[6] && (
                       <div className="carousel-item">
                         <img
+                          className="carousel-item-image"
                           style={{ height: "300px" }}
                           src={photoArray[6].downloadURL}
                           alt="Seventh slide"
@@ -139,7 +140,7 @@ const BlogItem = ({ post, edit }) => {
                 <br />
               </div>
               <div className="col-md-3"></div>
-            </>
+            </div>
           )}
           {edit && (
             <>
