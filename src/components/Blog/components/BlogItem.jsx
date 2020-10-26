@@ -25,7 +25,7 @@ const BlogItem = ({ post, edit }) => {
 
   return (
     <>
-      <div className="row">
+      <div className="row ">
         <div className="col-md-12 blog-post" id={sidebarDate}>
           <h1 className="blog-post-title">
             {title}

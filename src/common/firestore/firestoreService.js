@@ -84,7 +84,6 @@ export async function updateBlogPhoto(
 
 export function addPhotoToFirestore(downloadURL, filename, path) {
   let newPath = path.split("/")[1];
-  console.log({ downloadURL, filename, newPath });
   return db.collection(newPath).add({
     date: now,
     filename: filename,

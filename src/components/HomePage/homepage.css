@@ -4,36 +4,46 @@
   margin-top: 25px;
 }
 
-.hompage-overflow {
+.hompage-one-overflow {
   overflow: hidden;
+  height: 300px;
+}
+.hompage-two-overflow {
+  overflow: hidden;
+  margin-top: 50px;
+  height: 767px;
+}
+.hompage-three-overflow {
+  overflow: hidden;
+  margin-top: 100px;
+  height: 360px;
 }
 
 #homepage-image-one {
   width: 100%;
-  height: 301px;
+  height: auto;
+  transition: all 1s;
 }
 
 #homepage-image-two {
   width: 100%;
-  margin-top: 50px;
+  transition: all 1s;
 }
 #homepage-image-three {
   width: 100%;
-  margin-top: 100px;
+  transition: all 1s;
 }
 
 #homepage-image-one:hover {
-  animation: hoverZoom 1s;
+  transform: scale(1.5);
+  transition: all 1s;
+}
+#homepage-image-two:hover {
+  transform: scale(1.5);
 }
 
-@keyframes hoverZoom {
-  from {
-    width: 100%;
-  }
-  to {
-    width: 110%;
-    height: auto;
-  }
+#homepage-image-three:hover {
+  transform: scale(1.5);
 }
 
 @media only screen and (max-width: 991px) {
