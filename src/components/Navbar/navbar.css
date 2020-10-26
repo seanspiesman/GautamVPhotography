@@ -1,0 +1,62 @@
+#navbar-title {
+  font-size: 170%;
+  font-weight: bold;
+  text-shadow: 0px 0px 1px black;
+  font-family: "EB Garamond", serif;
+}
+
+@media (max-width: 991px) {
+  #navbar-title {
+    font-size: 135%;
+  }
+}
+
+#navbar-title:hover {
+  color: rgb(177, 177, 177);
+}
+
+@media all and (min-width: 767px) {
+  .navbar .nav-item .dropdown-menu {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    margin-top: 0;
+  }
+  .navbar .nav-item:hover .nav-link {
+    color: #fff;
+  }
+  .navbar .dropdown-menu.fade-down {
+    top: 80%;
+    transform: rotateX(-75deg);
+    transform-origin: 0% 0%;
+  }
+  .navbar .dropdown-menu.fade-up {
+    top: 180%;
+  }
+  .navbar .nav-item:hover .dropdown-menu {
+    transition: 0.3s;
+    opacity: 1;
+    visibility: visible;
+    top: 100%;
+    transform: rotateX(0deg);
+  }
+}
+
+.link-text {
+  background-color: #212121 !important;
+  /* font-size: 1rem !important; */
+  font-weight: bold;
+  font-family: "EB Garamond", serif;
+  /* "Shadows Into Light", cursive; */
+}
+
+.bg-dark {
+  background-color: #212121 !important;
+}
+
+.dd-link-text {
+  background-color: #212121 !important;
+  color: white !important;
+  /* font-size: 1.5rem !important; */
+}

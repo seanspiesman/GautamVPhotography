@@ -5,7 +5,7 @@ import * as Yup from "yup";
 
 import ImageDropzone from "../../ImageCropper/ImageDropzone";
 import { listenToBlog } from "../redux/blogActions";
-import LoadingComponent from "../../LoadingComponent";
+import LoadingComponent from "../../Loading/LoadingComponent";
 import {
   addPostToFirestore,
   listenToPostsFromFirestore,

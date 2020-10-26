@@ -7,13 +7,14 @@ import {
   listenToPostsFromFirestore,
 } from "../../common/firestore/firestoreService";
 import useFirestoreCollection from "../../common/hooks/useFirestoreCollection";
-import LoadingComponent from "../LoadingComponent";
+import LoadingComponent from "../Loading/LoadingComponent";
+import Navbar from "../Navbar/Navbar";
 import BlogItem from "./components/BlogItem";
-// import { listenToBlogPhotos } from "./photoRedux/blogPhotoActions";
 import { listenToBlog } from "./redux/blogActions";
+import "./blog.css";
 
 const Blog = () => {
-  const { auth, blog } = useSelector((state) => state);
+  const { auth, blog, async } = useSelector((state) => state);
   let oragnizeBlog = blog.posts.slice().reverse();
   let edit, admin;
   if (auth.currentUser) admin = auth.currentUser.email;
@@ -35,58 +36,56 @@ const Blog = () => {
     sidebarArr.push(formattedDate);
   }
 
-  return (
-    <div className="container">
-      <br />
-      <h1
-        className="text-center"
-        style={{ color: "white", fontFamily: "sans serif" }}
-      >
-        A Day in the Life
-      </h1>
+  if (async.loading) {
+    return <LoadingComponent />;
+  }
 
-      <br />
-      <div className="row">
-        {edit && (
-          <Link
-            className="btn btn-info"
-            style={{ margin: "auto", marginBottom: 30 }}
-            to={"/CreatePost"}
-          >
-            Create New Post
-          </Link>
-        )}
-      </div>
-      <div className="row">
-        {oragnizeBlog ? (
-          <>
-            <div className="col-md-2">
-              <ul className="sidebar">
-                {sidebarArr.reverse().map((date, index) => {
-                  return (
-                    <li key={index} className="sidebar-link">
-                      <div
-                        className="sidebar-link-a"
-                        onClick={() => {
-                          document.getElementById(date).scrollIntoView();
-                        }}
-                      >
-                        {date}
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-            <div className="col-md-10">
-              {oragnizeBlog.map((post, index) => (
-                <BlogItem key={index} index={index} post={post} edit={edit} />
-              ))}
-            </div>
-          </>
-        ) : (
-          <LoadingComponent />
-        )}
+  return (
+    <div>
+      <Navbar />
+      <div className="container load-from-right">
+        <h1 className="text-center blog-page-title">A Day in the Life</h1>
+        <div className="row">
+          {edit && (
+            <Link
+              className="btn btn-primary create-new-post"
+              to={"/CreatePost"}
+            >
+              Create New Post
+            </Link>
+          )}
+        </div>
+        <div className="row">
+          {oragnizeBlog ? (
+            <>
+              <div className="col-md-2">
+                <ul className="sidebar">
+                  {sidebarArr.reverse().map((date, index) => {
+                    return (
+                      <li key={index} className="sidebar-link">
+                        <div
+                          className="sidebar-link-a"
+                          onClick={() => {
+                            document.getElementById(date).scrollIntoView();
+                          }}
+                        >
+                          {date}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              <div className="col-md-10">
+                {oragnizeBlog.map((post, index) => (
+                  <BlogItem key={index} index={index} post={post} edit={edit} />
+                ))}
+              </div>
+            </>
+          ) : (
+            <LoadingComponent />
+          )}
+        </div>
       </div>
     </div>
   );

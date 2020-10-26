@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ImageDropzone from "../ImageCropper/ImageDropzone";
 import useFirestoreCollection from "../../common/hooks/useFirestoreCollection";
@@ -7,10 +7,12 @@ import {
   listenToAlbumPhotosFromFirestore,
 } from "../../common/firestore/firestoreService";
 import { listenToPhotos } from "./redux/photoActions";
+import "./album.css";
 
 import ResponsiveGallery from "react-responsive-gallery";
-import LoadingComponent from "../LoadingComponent";
+import LoadingComponent from "../Loading/LoadingComponent";
 import { deletePicFromFirebaseStorage } from "../../common/firestore/firebaseService";
+import Navbar from "../Navbar/Navbar";
 
 const Album = ({ title, path }) => {
   const { auth, albumPhotos, async } = useSelector((state) => state);
@@ -54,9 +56,9 @@ const Album = ({ title, path }) => {
     }
   }
 
-  if (!albumPhotos) {
-    return <LoadingComponent />;
-  }
+  // if (!albumPhotos) {
+  //   return <LoadingComponent />;
+  // }
 
   const colOne = [];
   const colTwo = [];
@@ -87,76 +89,70 @@ const Album = ({ title, path }) => {
   }
 
   return (
-    <div className="container">
-      <h1
-        className="text-center"
-        style={{
-          fontFamily: "sans serif",
-          color: "white",
-          marginTop: "20px",
-        }}
-      >
-        {title}
-      </h1>
+    <div className="fade-in-album">
+      <Navbar />
+      <div className="container">
+        <h1 className="text-center album-title">{title}</h1>
 
-      {auth && edit && (
-        <>
-          <ImageDropzone path={path} />
+        {auth && edit && (
+          <>
+            <ImageDropzone path={path} />
 
-          <div
-            className="row"
-            style={{ marginLeft: "0px", marginRight: "0px" }}
-          >
-            {allArray.map((item, index) => (
-              <div
-                className="col-md-3"
-                key={index}
-                style={{
-                  padding: 2,
-                }}
-              >
-                {item.map((image, innerIndex) => {
-                  return (
-                    <div
-                      key={innerIndex}
-                      style={{
-                        position: "relative",
-                      }}
-                    >
-                      <img
-                        alt={index}
-                        src={image.photoURL}
-                        style={{ width: "100%", paddingTop: "5px" }}
-                      />
-                      <button
-                        className="btn btn-danger"
+            <div
+              className="row"
+              style={{ marginLeft: "0px", marginRight: "0px" }}
+            >
+              {allArray.map((item, index) => (
+                <div
+                  className="col-md-3"
+                  key={index}
+                  style={{
+                    padding: 2,
+                  }}
+                >
+                  {item.map((image, innerIndex) => {
+                    return (
+                      <div
+                        key={innerIndex}
                         style={{
-                          position: "absolute",
-                          bottom: "0px",
-                          right: "0px",
-                          margin: "0px",
-                        }}
-                        onClick={() => {
-                          handleDeleteAlbumPhoto(
-                            path,
-                            image.filename,
-                            image.id
-                          );
+                          position: "relative",
                         }}
                       >
-                        Delete
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
-            ))}
-          </div>
-        </>
-      )}
-      {!edit && (
-        <ResponsiveGallery images={formatPhotoArr} useLightBox={true} />
-      )}
+                        <img
+                          alt={index}
+                          src={image.photoURL}
+                          style={{ width: "100%", paddingTop: "5px" }}
+                        />
+                        <button
+                          className="btn btn-danger"
+                          style={{
+                            position: "absolute",
+                            bottom: "0px",
+                            right: "0px",
+                            margin: "0px",
+                          }}
+                          onClick={() => {
+                            handleDeleteAlbumPhoto(
+                              path,
+                              image.filename,
+                              image.id
+                            );
+                          }}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+        {!edit && (
+          <ResponsiveGallery images={formatPhotoArr} useLightBox={true} />
+        )}
+      </div>
     </div>
   );
 };

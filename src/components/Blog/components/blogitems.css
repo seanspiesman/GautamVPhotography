@@ -51,29 +51,4 @@
   overflow-wrap: break-word;
 }
 
-.sidebar {
-  background-color: rgb(65, 65, 65);
-  color: white;
-  border: 6px solid rgb(93, 93, 93);
-  border-radius: 5px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 50px;
-  text-align: center !important;
-  padding: 5px 0px 5px 0px;
-}
 
-.sidebar-link {
-  font-size: 12px;
-  background-color: rgb(65, 65, 65);
-  list-style-type: none;
-}
-
-.sidebar-link-a {
-  color: white;
-}
-
-.sidebar-link-a:hover {
-  color: rgb(158, 158, 158);
-  cursor: pointer;
-}

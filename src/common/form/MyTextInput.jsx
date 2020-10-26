@@ -1,6 +1,6 @@
 import React from "react";
 import { useField } from "formik";
-import LoadingComponent from "../../components/LoadingComponent";
+import LoadingComponent from "../../components/Loading/LoadingComponent";
 
 export default function MyTextInput({ label, ...props }) {
   const [field, meta] = useField(props);

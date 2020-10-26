@@ -1,0 +1,18 @@
+.album-title {
+  font-family: "Kumbh Sans", sans-serif;
+  color: white;
+  margin-top: 20px;
+}
+
+.fade-in-album {
+  animation: fadeInAlbum 3s;
+}
+
+@keyframes fadeInAlbum {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

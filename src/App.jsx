@@ -1,13 +1,9 @@
 import React, { Fragment } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import "./App.css";
-import About from "./components/About";
 import India from "./components/Album/India";
 import Japan from "./components/Album/Japan";
 import Blog from "./components/Blog/Blog";
-import Contact from "./components/Contact";
-import Homepage from "./components/Homepage";
-import Navbar from "./components/Navbar";
 import LoginPage from "./components/LoginPage";
 import PostForm from "./components/Blog/components/PostForm";
 import Alaska from "./components/Album/Alaska";
@@ -19,11 +15,14 @@ import America from "./components/Album/America";
 import C130 from "./components/Album/C130";
 import Aerial from "./components/Album/Aerial";
 import PacificNW from "./components/Album/PacificNW";
+import About from "./components/AboutPage/About";
+import Contact from "./components/AboutPage/Contact";
+import Navbar from "./components/Navbar/Navbar";
+import Homepage from "./components/HomePage/Homepage";
 
 function App() {
   return (
     <>
-      <Navbar />
       <Route exact path="/" component={Homepage} />
       <Route
         path="/(.+)"

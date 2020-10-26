@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import "./navbar.css";
 
 const Navbar = () => {
   // const { authneticated } = useSelector((state) => state.auth);
@@ -7,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
       <Link to={"/"} className="navbar-brand">
-        <h1 id="homepage-title">
+        <h1 id="navbar-title">
           Gautam <br /> Venkataraman
           <br />
           <p
