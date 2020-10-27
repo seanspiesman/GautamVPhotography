@@ -89,8 +89,7 @@ const Album = ({ title, path }) => {
   }
 
   return (
-    <div className="fade-in-album">
-      <Navbar />
+    <>
       <div className="container">
         <h1 className="text-center album-title">{title}</h1>
 
@@ -153,7 +152,7 @@ const Album = ({ title, path }) => {
           <ResponsiveGallery images={formatPhotoArr} useLightBox={true} />
         )}
       </div>
-    </div>
+    </>
   );
 };
 

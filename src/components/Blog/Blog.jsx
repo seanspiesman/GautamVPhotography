@@ -41,51 +41,45 @@ const Blog = () => {
   }
 
   return (
-    <div>
-      <Navbar />
-      <div className="container load-from-right">
-        <h1 className="text-center blog-page-title">A Day in the Life</h1>
-        <div className="row">
-          {edit && (
-            <Link
-              className="btn btn-primary create-new-post"
-              to={"/CreatePost"}
-            >
-              Create New Post
-            </Link>
-          )}
-        </div>
-        <div className="row">
-          {oragnizeBlog ? (
-            <>
-              <div className="col-md-2">
-                <ul className="sidebar">
-                  {sidebarArr.reverse().map((date, index) => {
-                    return (
-                      <li key={index} className="sidebar-link">
-                        <div
-                          className="sidebar-link-a"
-                          onClick={() => {
-                            document.getElementById(date).scrollIntoView();
-                          }}
-                        >
-                          {date}
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-              <div className="col-md-10">
-                {oragnizeBlog.map((post, index) => (
-                  <BlogItem key={index} index={index} post={post} edit={edit} />
-                ))}
-              </div>
-            </>
-          ) : (
-            <LoadingComponent />
-          )}
-        </div>
+    <div className="container">
+      <h1 className="text-center blog-page-title">A Day in the Life</h1>
+      <div className="row">
+        {edit && (
+          <Link className="btn btn-primary create-new-post" to={"/CreatePost"}>
+            Create New Post
+          </Link>
+        )}
+      </div>
+      <div className="row">
+        {oragnizeBlog ? (
+          <>
+            <div className="col-md-2">
+              <ul className="sidebar">
+                {sidebarArr.reverse().map((date, index) => {
+                  return (
+                    <li key={index} className="sidebar-link">
+                      <div
+                        className="sidebar-link-a"
+                        onClick={() => {
+                          document.getElementById(date).scrollIntoView();
+                        }}
+                      >
+                        {date}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div className="col-md-10">
+              {oragnizeBlog.map((post, index) => (
+                <BlogItem key={index} index={index} post={post} edit={edit} />
+              ))}
+            </div>
+          </>
+        ) : (
+          <LoadingComponent />
+        )}
       </div>
     </div>
   );

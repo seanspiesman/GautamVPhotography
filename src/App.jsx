@@ -17,43 +17,47 @@ import Aerial from "./components/Album/Aerial";
 import PacificNW from "./components/Album/PacificNW";
 import About from "./components/AboutPage/About";
 import Contact from "./components/AboutPage/Contact";
-import Navbar from "./components/Navbar/Navbar";
+import { AnimatedSwitch } from "react-router-transition";
 import Homepage from "./components/HomePage/Homepage";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <>
-      <Route exact path="/" component={Homepage} />
-      <Route
-        path="/(.+)"
-        render={() => (
-          <Fragment>
-            <Switch>
-              <Route path="/About" component={About} />
-              <Route exact path="/Albums/Alaska" component={Alaska} />
-              <Route exact path="/Albums/Japan" component={Japan} />
-              <Route exact path="/Albums/India" component={India} />
-              <Route exact path="/Albums/Rockies" component={Rockies} />
-              <Route exact path="/Albums/Utah" component={Utah} />
-              <Route exact path="/Albums/WestUS" component={WestUS} />
-              <Route exact path="/Albums/Pacific" component={Pacific} />
-              <Route exact path="/Albums/PacificNW" component={PacificNW} />
-              <Route exact path="/Albums/America" component={America} />
-              <Route exact path="/Albums/C130" component={C130} />
-              <Route exact path="/Albums/Aerial" component={Aerial} />
+      <Fragment>
+        <Navbar />
+        <Switch>
+          <AnimatedSwitch
+            atEnter={{ opacity: 0 }}
+            atLeave={{ opacity: 0 }}
+            atActive={{ opacity: 1 }}
+            className="switch-wrapper"
+          >
+            <Route exact path="/" component={Homepage} />
+            <Route path="/About" component={About} />
+            <Route exact path="/Albums/Alaska" component={Alaska} />
+            <Route exact path="/Albums/Japan" component={Japan} />
+            <Route exact path="/Albums/India" component={India} />
+            <Route exact path="/Albums/Rockies" component={Rockies} />
+            <Route exact path="/Albums/Utah" component={Utah} />
+            <Route exact path="/Albums/WestUS" component={WestUS} />
+            <Route exact path="/Albums/Pacific" component={Pacific} />
+            <Route exact path="/Albums/PacificNW" component={PacificNW} />
+            <Route exact path="/Albums/America" component={America} />
+            <Route exact path="/Albums/C130" component={C130} />
+            <Route exact path="/Albums/Aerial" component={Aerial} />
 
-              <Route path="/Contact" component={Contact} />
-              <Route path="/Blog" component={Blog} />
-              <Route path="/Login" component={LoginPage} />
-              <Route
-                path={["/CreatePost", "/ManagePost/:id"]}
-                component={PostForm}
-              />
-              {/* <Route component={NotFound} /> */}
-            </Switch>
-          </Fragment>
-        )}
-      />
+            <Route path="/Contact" component={Contact} />
+            <Route path="/Blog" component={Blog} />
+            <Route path="/Login" component={LoginPage} />
+            <Route
+              path={["/CreatePost", "/ManagePost/:id"]}
+              component={PostForm}
+            />
+            {/* <Route component={NotFound} /> */}
+          </AnimatedSwitch>
+        </Switch>
+      </Fragment>
     </>
   );
 }

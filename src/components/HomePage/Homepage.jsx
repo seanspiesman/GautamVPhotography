@@ -4,8 +4,7 @@ import "./homepage.css";
 
 const Homepage = () => {
   return (
-    <div className="fade-in-from-top">
-      <Navbar />
+    <>
       <div className="container text-center homepage-text">
         <h1>Selected Works</h1>
         <div className="row">
@@ -17,7 +16,7 @@ const Homepage = () => {
                 src="https://images.unsplash.com/photo-1517516482190-5a674bb7964d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80"
               />
             </div>
-            <p styles={{ zIndex: "1000" }}>
+            <p style={{ zIndex: "1000" }}>
               Pellentesque habitant morbi tristique senectus et netus et
               malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
               vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
@@ -57,7 +56,7 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

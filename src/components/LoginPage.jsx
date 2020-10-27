@@ -1,5 +1,6 @@
 import React from "react";
-import { socialLogin } from "../common/firestore/firebaseService"
+import { socialLogin } from "../common/firestore/firebaseService";
+import Navbar from "./Navbar/Navbar";
 
 export default function LoginForm() {
   function handleSocialLogin() {
@@ -8,16 +9,17 @@ export default function LoginForm() {
 
   return (
     <>
-            <div className='text-center' style={{marginTop: '30%'}}>
-              <button
-                onClick={() => handleSocialLogin()}
-                type="button"
-                className="btn btn-primary"
-                aria-label="Close"
-              >
-                Login with Google
-              </button>
-            </div>
+      <Navbar />
+      <div className="text-center" style={{ marginTop: "30%" }}>
+        <button
+          onClick={() => handleSocialLogin()}
+          type="button"
+          className="btn btn-primary"
+          aria-label="Close"
+        >
+          Login with Google
+        </button>
+      </div>
     </>
   );
 }
