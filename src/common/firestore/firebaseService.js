@@ -14,6 +14,10 @@ export async function socialLogin() {
   }
 }
 
+export function signOutFirebase() {
+  return firebase.auth().signOut();
+}
+
 export function uploadPicToFirebaseStorage(path, file, filename, postId) {
   const storageRef = firebase.storage().ref();
   if (postId === undefined) {

@@ -4,12 +4,9 @@ import LoadingComponent from "../Loading/LoadingComponent";
 const Contact = () => {
   return (
     <>
-      <div className="container">
+      <div className="container text-center">
         <h1 className="about-page-title text-center">Contact</h1>
-        <p className="about-page-text">
-          Aint nobody got a reason to contact me at the moment, I'm an
-          undercover operative so.... yea
-        </p>
+        <p className="about-page-text">Contact info coming soon...</p>
         <LoadingComponent />
       </div>
     </>

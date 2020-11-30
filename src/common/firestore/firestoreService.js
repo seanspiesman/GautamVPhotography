@@ -1,4 +1,3 @@
-import cuid from "cuid";
 import { firestore } from "firebase";
 import firebase from "../config/firebase";
 
@@ -33,18 +32,17 @@ export function getBlogPhotos(postId) {
 
 const now = firestore.Timestamp.fromDate(new Date());
 
-let postImageId = cuid();
-
 export function addPostToFirestore(post) {
+  console.log({post});
   return db.collection("Blog").add({
     ...post,
     date: now,
-    id: postImageId,
     photoArray: [],
   });
 }
 
 export function updatePostInFirestore(post) {
+  console.log(post);
   return db.collection("Blog").doc(post.id).update(post);
 }
 

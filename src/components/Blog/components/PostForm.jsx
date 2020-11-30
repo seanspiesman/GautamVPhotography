@@ -32,7 +32,7 @@ const PostForm = (props) => {
   };
 
   useFirestoreCollection({
-    shouldExecute: location.pathname === "/CreatePost",
+    // shouldExecute: location.pathname === "/CreatePost",
     query: () => listenToPostsFromFirestore(),
     data: (post) => dispatch(listenToBlog(post)),
     deps: [dispatch],
@@ -56,6 +56,7 @@ const PostForm = (props) => {
             post
               ? await updatePostInFirestore(values)
               : await addPostToFirestore(values);
+
             history.push("/Blog");
           } catch (error) {
             console.log(error);

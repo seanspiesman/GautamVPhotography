@@ -3,9 +3,6 @@ import { CREATE_PHOTO, FETCH_PHOTO } from "./photoConstants";
 
 const initialState = {
   photos: [],
-  //   Alaska: [],
-  //   Japan: [],
-  //   PacificNW: [],
 };
 
 export default function photoReducer(state = initialState, { type, payload }) {

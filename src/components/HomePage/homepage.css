@@ -6,17 +6,12 @@
 
 .hompage-one-overflow {
   overflow: hidden;
-  height: 300px;
 }
 .hompage-two-overflow {
   overflow: hidden;
-  margin-top: 50px;
-  height: 767px;
 }
 .hompage-three-overflow {
   overflow: hidden;
-  margin-top: 100px;
-  height: 360px;
 }
 
 #homepage-image-one {
@@ -35,42 +30,58 @@
 }
 
 #homepage-image-one:hover {
-  transform: scale(1.5);
-  transition: all 1s;
+  transform: scale(1.2);
 }
 #homepage-image-two:hover {
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
-
 #homepage-image-three:hover {
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 
-@media only screen and (max-width: 991px) {
-  #homepage-image-one {
-    width: 100%;
-  }
-  #homepage-image-two {
-    width: 100%;
-    margin-top: 20px;
-  }
-  #homepage-image-three {
-    width: 100%;
-    margin-top: 20px;
-  }
+.image-item-one {
+  background-color: rgb(65, 65, 65);
+  color: white;
+  border: 6px solid rgb(93, 93, 93);
+  border-radius: 5px;
+  padding: 20px;
 }
 
-.fade-in-from-top {
-  animation: fadeinfromtop 2s;
+.image-item-two {
+  margin-top: 100px;
+  background-color: rgb(65, 65, 65);
+  color: white;
+  border: 6px solid rgb(93, 93, 93);
+  border-radius: 5px;
+  padding: 20px;
+}
+.image-item-three {
+  margin-top: 100px;
+  background-color: rgb(65, 65, 65);
+  color: white;
+  border: 6px solid rgb(93, 93, 93);
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-@keyframes fadeinfromtop {
-  from {
-    opacity: 0;
-    transform: translate(0%, -200%);
+@media only screen and (max-width: 1077px) {
+  .hompage-one-overflow {
+    height: 185px;
   }
-  to {
-    opacity: 1;
-    transform: translate(0%, 0%);
+  .hompage-two-overflow {
+    /* margin-top: 50px; */
+    height: 468px !important;
+  }
+  .hompage-three-overflow {
+    /* margin-top: 100px; */
+    height: 220px;
+  }
+  .image-item-two {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .image-item-three {
+    margin-top: 10px;
   }
 }

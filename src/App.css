@@ -1,8 +1,8 @@
-html,
-#root {
-  background-color: rgb(41, 41, 41);
-  min-height: 120vh;
+html {
+  min-height: 100%;
   scroll-behavior: smooth;
+
+  background-color: rgb(41, 41, 41);
 }
 
 .about-page-title {
@@ -21,8 +21,8 @@ html,
 }
 
 .switch-wrapper > div {
-  width: 100vw;
   position: absolute;
-  /* margin-left: auto;
-  margin-right: auto; */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
